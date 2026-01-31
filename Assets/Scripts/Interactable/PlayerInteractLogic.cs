@@ -4,9 +4,12 @@ public class PlayerInteractLogic : MonoBehaviour
 {
     [SerializeField] private IInteractable overlappedInteractable;
 
+    public IInteractable OverlappedInteractable => overlappedInteractable;
+
     public void SetOverlappedInteractable(IInteractable interactable)
     {
         overlappedInteractable = interactable;
+        Debug.Log($"Set overlapped interactable: {interactable}");
     }
 
     public void RemoveOverlappedInteractable(IInteractable interactable)

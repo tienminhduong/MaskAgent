@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class InteractableBox : MonoBehaviour
 {
+    [SerializeField] private BaseCharacter character;
     [SerializeField] private InteractablePublisher onOverlapEvent;
     [SerializeField] private InteractablePublisher onOverlapExitEvent;
     IInteractable interactable;
