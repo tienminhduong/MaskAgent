@@ -159,10 +159,11 @@ public class BaseCharacter : MonoBehaviour, IInteractable, ILureable
         }
     }
 
-    public void OnLured(Role lurerRole)
+    public bool OnLured(Role lurerRole)
     {
-        if (!((ILureable)this).IsLureable(lurerRole)) return;
+        if (!((ILureable)this).IsLureable(lurerRole)) return false;
         isLured = true;
+        return true;
     }
 
     public void Interacted(IInteractable interacted)

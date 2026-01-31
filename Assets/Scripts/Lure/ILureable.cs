@@ -9,5 +9,5 @@ public interface ILureable
         return LureableRoleMap.Roles[lurerRole].Contains(HumanInfo.Role);
     }
 
-    void OnLured(Role lurerRole);
+    bool OnLured(Role lurerRole);
 }

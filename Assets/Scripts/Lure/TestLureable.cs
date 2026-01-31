@@ -12,13 +12,14 @@ public class TestLureable : MonoBehaviour, ILureable, IInteractable
         transform.Translate(Direction * Time.deltaTime * Vector2.right);
     }
 
-    public void OnLured(Role lurerRole)
+    public bool OnLured(Role lurerRole)
     {
         Debug.Log($"Attempting to lure {humanInfo.Name} as {lurerRole}");
-        if (!((ILureable)this).IsLureable(lurerRole)) return;
+        if (!((ILureable)this).IsLureable(lurerRole)) return false;
 
         Debug.Log("Lured " + humanInfo.Name);
         Direction *= -1;
+        return true;
     }
 
     public void Interacted(IInteractable interacted)

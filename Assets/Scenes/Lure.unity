@@ -589,6 +589,14 @@ PrefabInstance:
       propertyPath: playerInfo
       value: 
       objectReference: {fileID: 11400000, guid: 108747d148b537f4daafa42d58def038, type: 2}
+    - target: {fileID: 4368705995477911980, guid: 7f15db1aa2dd3db41a2bd165b5639ea8, type: 3}
+      propertyPath: suspectLevel
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4368705995477911980, guid: 7f15db1aa2dd3db41a2bd165b5639ea8, type: 3}
+      propertyPath: gameOverEvent
+      value: 
+      objectReference: {fileID: 11400000, guid: 5ee0a84c175024b4b8a1aae9bb625231, type: 2}
     - target: {fileID: 4913386564789340316, guid: 7f15db1aa2dd3db41a2bd165b5639ea8, type: 3}
       propertyPath: m_Name
       value: Player

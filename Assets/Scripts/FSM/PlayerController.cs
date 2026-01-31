@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using SOEventSystem;
 using Unity.Burst.CompilerServices;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -15,11 +16,17 @@ public class PlayerController : MonoBehaviour
 
 
     // ================= Props ================-
+    [Header("Props")]
     [SerializeField] float moveSpeed = 5.0f;
     [SerializeField] float scaleSpeed = 2.5f;
 
     [SerializeField] float rotationSpeed = 10f;
     [SerializeField] HumanInfo playerInfo;
+
+    [Range(0, GameLimit.MAX_SUSPECT_LEVEL)][SerializeField] int suspectLevel = 0;
+
+    [Header("Events")]
+    [SerializeField] VoidPublisher gameOverEvent;
 
     PlayerInteractLogic playerInteractLogic;
 
@@ -113,7 +120,18 @@ public class PlayerController : MonoBehaviour
 
     public void OnLure(InputValue lureValue)
     {
-        playerInteractLogic.Lure(playerInfo.Role);
+        if (playerInteractLogic.Lure(playerInfo.Role))
+            Debug.Log("Lure successful or no interactable.");
+        else
+        {
+            Debug.Log("Lure failed.");
+            RaiseSuspectLevel();
+            if (suspectLevel >= GameLimit.MAX_SUSPECT_LEVEL)
+            {
+                Debug.Log("Game Over! Suspect level reached maximum.");
+                gameOverEvent.RaiseEvent();
+            }
+        }
     }
 
     // =========== Collision ================
@@ -144,6 +162,10 @@ public class PlayerController : MonoBehaviour
 
     //}
 
+    public void RaiseSuspectLevel()
+    {
+        suspectLevel++;
+    }
 
 
     private void OnCollisionEnter2D(Collision2D collision)
