@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Unity.Burst.CompilerServices;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -15,10 +16,9 @@ public class PlayerController : MonoBehaviour
 
     // ================= Props ================-
     [SerializeField] float moveSpeed = 5.0f;
-    [SerializeField] float jumpForce = 5.0f;
-    [SerializeField] float climbSpeed = 10.0f;
-    bool isFacingRight = true;
+    [SerializeField] float scaleSpeed = 2.5f;
     bool isInteract = false;
+    bool isRunning = false;
 
     // ================= value INPUT =================
 
@@ -60,48 +60,25 @@ public class PlayerController : MonoBehaviour
     // ================= MOVEMENT =================
     public bool HandleMoving()
     {
-        Flip();
+        Vector2 moveInput = input.normalized;
+        Rotation();
 
-        if (Mathf.Abs(input.x) >= 0.1f)
+        if (moveInput.magnitude >= 0.1f)
         {
-            _rigidbody.linearVelocity = new Vector2(input.x * moveSpeed, _rigidbody.linearVelocity.y);
-            if (IsGrounded() == true)
-            {
-                _fsm.ChangeState(new RunState());
-            }
+            _rigidbody.linearVelocity = moveInput * moveSpeed * ((isRunning) ? scaleSpeed : 1);
+            _fsm.ChangeState(new RunState());
             return true;
         }
-        else
-        {
-            _rigidbody.linearVelocity = new Vector2(0, _rigidbody.linearVelocity.y);
-        }
+        _rigidbody.linearVelocity = Vector2.zero;
         return false;
     }
 
-    public bool HandleJump()
+    void Rotation()
     {
-        if (jumpPressed && IsGrounded())
-        {
-            jumpPressed = false;
-            _fsm.ChangeState(new JumpState());
-            return true;
-        }
-        return false;
-    }
-    public void Jump()
-    {
-        Vector2 force = new Vector2(0.0f, jumpForce);
-        _rigidbody.AddForce(force, ForceMode2D.Impulse);
-    }
-    private void Flip()
-    {
-        if (isFacingRight && input.x < 0 || !isFacingRight && input.x > 0)
-        {
-            isFacingRight = !isFacingRight;
-            Vector3 Oscale = transform.localScale;
-            Oscale.x = Oscale.x * -1;
-            transform.localScale = Oscale;
-        }
+        if (input.magnitude < 0.1f) return;
+
+        float angle = Mathf.Atan2(input.y, input.x) * Mathf.Rad2Deg;
+        _rigidbody.rotation = angle;
     }
 
     // ========= INPUT EVENTS =========
@@ -109,16 +86,10 @@ public class PlayerController : MonoBehaviour
     {
         input = movementvalue.Get<Vector2>();
     }
-
-
-    public void OnJump(InputValue isJump)
+    public void OnRun(InputValue shift)
     {
-        if (IsGrounded())
-        {
-            jumpPressed = isJump.isPressed;
-        }
+        this.isRunning = shift.isPressed;
     }
-
     public void OnInteract(InputValue isInteract)
     {
         this.isInteract = isInteract.isPressed;
@@ -126,31 +97,31 @@ public class PlayerController : MonoBehaviour
 
     // =========== Collision ================
 
-    Vector2 boxSize = new Vector2(0.6f, 0.1f);
-    Vector3 boxCenterOffset = Vector3.down * 0.515f;
+    //Vector2 boxSize = new Vector2(0.6f, 0.1f);
+    //Vector3 boxCenterOffset = Vector3.down * 0.515f;
 
-    public bool IsGrounded()
-    {
-        Vector2 boxCenter = (Vector2)transform.position + (Vector2)boxCenterOffset;
+    //public bool IsGrounded()
+    //{
+    //    Vector2 boxCenter = (Vector2)transform.position + (Vector2)boxCenterOffset;
 
-        Collider2D hit = Physics2D.OverlapBox(
-            boxCenter,
-            boxSize,
-            0f,
-            LayerMask.GetMask(LayerMaskName.Ground)
-        );
-        return hit != null;
-    }
-    void OnDrawGizmos()
-    {
-        Vector2 boxCenter = (Vector2)transform.position + (Vector2)boxCenterOffset;
+    //    Collider2D hit = Physics2D.OverlapBox(
+    //        boxCenter,
+    //        boxSize,
+    //        0f,
+    //        LayerMask.GetMask(LayerMaskName.Ground)
+    //    );
+    //    return hit != null;
+    //}
+    //void OnDrawGizmos()
+    //{
+    //    Vector2 boxCenter = (Vector2)transform.position + (Vector2)boxCenterOffset;
 
-        // Change color based on grounded state (Editor only)
-        Gizmos.color = IsGrounded() ? Color.green : Color.red;
+    //    // Change color based on grounded state (Editor only)
+    //    Gizmos.color = IsGrounded() ? Color.green : Color.red;
 
-        Gizmos.DrawWireCube(boxCenter, boxSize);
+    //    Gizmos.DrawWireCube(boxCenter, boxSize);
 
-    }
+    //}
 
 
 
