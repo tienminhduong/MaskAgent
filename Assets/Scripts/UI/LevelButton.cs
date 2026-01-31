@@ -14,6 +14,8 @@ public class LevelButton : MonoBehaviour
         {
             GetComponent<Image>().color = Color.gray;
         }
+        // find object with name "Level Info Panel" to assign to 
+        levelInfoPanel = GameObject.Find("Level Info Panel");
     }
 
     public void OnClick()

@@ -131,14 +131,6 @@ PrefabInstance:
       propertyPath: levelName
       value: Level 5
       objectReference: {fileID: 0}
-    - target: {fileID: 1007783461216187337, guid: a3bb75f11e3284f4ab1eaf856d50388c, type: 3}
-      propertyPath: levelImage
-      value: 
-      objectReference: {fileID: -7443756053782179069, guid: e2aeb3b373a49c74f92271e7de71a5f9, type: 3}
-    - target: {fileID: 1007783461216187337, guid: a3bb75f11e3284f4ab1eaf856d50388c, type: 3}
-      propertyPath: levelInfoPanel
-      value: 
-      objectReference: {fileID: 1602093591}
     - target: {fileID: 4604251424021537172, guid: a3bb75f11e3284f4ab1eaf856d50388c, type: 3}
       propertyPath: m_Name
       value: Level 5
@@ -148,14 +140,6 @@ PrefabInstance:
       value: 'Level 5
 
 '
-      objectReference: {fileID: 0}
-    - target: {fileID: 9078752142007427694, guid: a3bb75f11e3284f4ab1eaf856d50388c, type: 3}
-      propertyPath: m_fontSize
-      value: 40
-      objectReference: {fileID: 0}
-    - target: {fileID: 9078752142007427694, guid: a3bb75f11e3284f4ab1eaf856d50388c, type: 3}
-      propertyPath: m_fontSizeBase
-      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 9199752792719164770, guid: a3bb75f11e3284f4ab1eaf856d50388c, type: 3}
       propertyPath: m_Pivot.x
@@ -435,31 +419,13 @@ PrefabInstance:
       propertyPath: levelName
       value: Level 4
       objectReference: {fileID: 0}
-    - target: {fileID: 1007783461216187337, guid: a3bb75f11e3284f4ab1eaf856d50388c, type: 3}
-      propertyPath: levelImage
-      value: 
-      objectReference: {fileID: -7443756053782179069, guid: e2aeb3b373a49c74f92271e7de71a5f9, type: 3}
-    - target: {fileID: 1007783461216187337, guid: a3bb75f11e3284f4ab1eaf856d50388c, type: 3}
-      propertyPath: levelInfoPanel
-      value: 
-      objectReference: {fileID: 1602093591}
     - target: {fileID: 4604251424021537172, guid: a3bb75f11e3284f4ab1eaf856d50388c, type: 3}
       propertyPath: m_Name
       value: Level 4
       objectReference: {fileID: 0}
     - target: {fileID: 9078752142007427694, guid: a3bb75f11e3284f4ab1eaf856d50388c, type: 3}
       propertyPath: m_text
-      value: 'Level 4
-
-'
-      objectReference: {fileID: 0}
-    - target: {fileID: 9078752142007427694, guid: a3bb75f11e3284f4ab1eaf856d50388c, type: 3}
-      propertyPath: m_fontSize
-      value: 40
-      objectReference: {fileID: 0}
-    - target: {fileID: 9078752142007427694, guid: a3bb75f11e3284f4ab1eaf856d50388c, type: 3}
-      propertyPath: m_fontSizeBase
-      value: 40
+      value: Level 4
       objectReference: {fileID: 0}
     - target: {fileID: 9199752792719164770, guid: a3bb75f11e3284f4ab1eaf856d50388c, type: 3}
       propertyPath: m_Pivot.x
@@ -741,14 +707,6 @@ PrefabInstance:
       propertyPath: levelName
       value: Level 7
       objectReference: {fileID: 0}
-    - target: {fileID: 1007783461216187337, guid: a3bb75f11e3284f4ab1eaf856d50388c, type: 3}
-      propertyPath: levelImage
-      value: 
-      objectReference: {fileID: -7443756053782179069, guid: e2aeb3b373a49c74f92271e7de71a5f9, type: 3}
-    - target: {fileID: 1007783461216187337, guid: a3bb75f11e3284f4ab1eaf856d50388c, type: 3}
-      propertyPath: levelInfoPanel
-      value: 
-      objectReference: {fileID: 1602093591}
     - target: {fileID: 4604251424021537172, guid: a3bb75f11e3284f4ab1eaf856d50388c, type: 3}
       propertyPath: m_Name
       value: Level 7
@@ -758,14 +716,6 @@ PrefabInstance:
       value: 'Level 7
 
 '
-      objectReference: {fileID: 0}
-    - target: {fileID: 9078752142007427694, guid: a3bb75f11e3284f4ab1eaf856d50388c, type: 3}
-      propertyPath: m_fontSize
-      value: 40
-      objectReference: {fileID: 0}
-    - target: {fileID: 9078752142007427694, guid: a3bb75f11e3284f4ab1eaf856d50388c, type: 3}
-      propertyPath: m_fontSizeBase
-      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 9199752792719164770, guid: a3bb75f11e3284f4ab1eaf856d50388c, type: 3}
       propertyPath: m_Pivot.x
@@ -939,14 +889,6 @@ PrefabInstance:
       propertyPath: levelName
       value: Level 8
       objectReference: {fileID: 0}
-    - target: {fileID: 1007783461216187337, guid: a3bb75f11e3284f4ab1eaf856d50388c, type: 3}
-      propertyPath: levelImage
-      value: 
-      objectReference: {fileID: -7443756053782179069, guid: e2aeb3b373a49c74f92271e7de71a5f9, type: 3}
-    - target: {fileID: 1007783461216187337, guid: a3bb75f11e3284f4ab1eaf856d50388c, type: 3}
-      propertyPath: levelInfoPanel
-      value: 
-      objectReference: {fileID: 1602093591}
     - target: {fileID: 4604251424021537172, guid: a3bb75f11e3284f4ab1eaf856d50388c, type: 3}
       propertyPath: m_Name
       value: Level 8
@@ -956,14 +898,6 @@ PrefabInstance:
       value: 'Level 8
 
 '
-      objectReference: {fileID: 0}
-    - target: {fileID: 9078752142007427694, guid: a3bb75f11e3284f4ab1eaf856d50388c, type: 3}
-      propertyPath: m_fontSize
-      value: 40
-      objectReference: {fileID: 0}
-    - target: {fileID: 9078752142007427694, guid: a3bb75f11e3284f4ab1eaf856d50388c, type: 3}
-      propertyPath: m_fontSizeBase
-      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 9199752792719164770, guid: a3bb75f11e3284f4ab1eaf856d50388c, type: 3}
       propertyPath: m_Pivot.x
@@ -1342,14 +1276,6 @@ PrefabInstance:
       propertyPath: levelName
       value: Level 3
       objectReference: {fileID: 0}
-    - target: {fileID: 1007783461216187337, guid: a3bb75f11e3284f4ab1eaf856d50388c, type: 3}
-      propertyPath: levelImage
-      value: 
-      objectReference: {fileID: -7443756053782179069, guid: e2aeb3b373a49c74f92271e7de71a5f9, type: 3}
-    - target: {fileID: 1007783461216187337, guid: a3bb75f11e3284f4ab1eaf856d50388c, type: 3}
-      propertyPath: levelInfoPanel
-      value: 
-      objectReference: {fileID: 1602093591}
     - target: {fileID: 4604251424021537172, guid: a3bb75f11e3284f4ab1eaf856d50388c, type: 3}
       propertyPath: m_Name
       value: Level 3
@@ -1359,14 +1285,6 @@ PrefabInstance:
       value: 'Level 3
 
 '
-      objectReference: {fileID: 0}
-    - target: {fileID: 9078752142007427694, guid: a3bb75f11e3284f4ab1eaf856d50388c, type: 3}
-      propertyPath: m_fontSize
-      value: 40
-      objectReference: {fileID: 0}
-    - target: {fileID: 9078752142007427694, guid: a3bb75f11e3284f4ab1eaf856d50388c, type: 3}
-      propertyPath: m_fontSizeBase
-      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 9199752792719164770, guid: a3bb75f11e3284f4ab1eaf856d50388c, type: 3}
       propertyPath: m_Pivot.x
@@ -1653,29 +1571,15 @@ PrefabInstance:
       propertyPath: levelName
       value: Level 9
       objectReference: {fileID: 0}
-    - target: {fileID: 1007783461216187337, guid: a3bb75f11e3284f4ab1eaf856d50388c, type: 3}
-      propertyPath: levelImage
-      value: 
-      objectReference: {fileID: -7443756053782179069, guid: e2aeb3b373a49c74f92271e7de71a5f9, type: 3}
-    - target: {fileID: 1007783461216187337, guid: a3bb75f11e3284f4ab1eaf856d50388c, type: 3}
-      propertyPath: levelInfoPanel
-      value: 
-      objectReference: {fileID: 1602093591}
     - target: {fileID: 4604251424021537172, guid: a3bb75f11e3284f4ab1eaf856d50388c, type: 3}
       propertyPath: m_Name
       value: Level 9
       objectReference: {fileID: 0}
     - target: {fileID: 9078752142007427694, guid: a3bb75f11e3284f4ab1eaf856d50388c, type: 3}
       propertyPath: m_text
-      value: Level 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 9078752142007427694, guid: a3bb75f11e3284f4ab1eaf856d50388c, type: 3}
-      propertyPath: m_fontSize
-      value: 40
-      objectReference: {fileID: 0}
-    - target: {fileID: 9078752142007427694, guid: a3bb75f11e3284f4ab1eaf856d50388c, type: 3}
-      propertyPath: m_fontSizeBase
-      value: 40
+      value: 'Level 9
+
+'
       objectReference: {fileID: 0}
     - target: {fileID: 9199752792719164770, guid: a3bb75f11e3284f4ab1eaf856d50388c, type: 3}
       propertyPath: m_Pivot.x
@@ -1774,31 +1678,13 @@ PrefabInstance:
       propertyPath: levelName
       value: Level 2
       objectReference: {fileID: 0}
-    - target: {fileID: 1007783461216187337, guid: a3bb75f11e3284f4ab1eaf856d50388c, type: 3}
-      propertyPath: levelImage
-      value: 
-      objectReference: {fileID: -7443756053782179069, guid: e2aeb3b373a49c74f92271e7de71a5f9, type: 3}
-    - target: {fileID: 1007783461216187337, guid: a3bb75f11e3284f4ab1eaf856d50388c, type: 3}
-      propertyPath: levelInfoPanel
-      value: 
-      objectReference: {fileID: 1602093591}
     - target: {fileID: 4604251424021537172, guid: a3bb75f11e3284f4ab1eaf856d50388c, type: 3}
       propertyPath: m_Name
       value: Level 2
       objectReference: {fileID: 0}
     - target: {fileID: 9078752142007427694, guid: a3bb75f11e3284f4ab1eaf856d50388c, type: 3}
       propertyPath: m_text
-      value: 'Level 2
-
-'
-      objectReference: {fileID: 0}
-    - target: {fileID: 9078752142007427694, guid: a3bb75f11e3284f4ab1eaf856d50388c, type: 3}
-      propertyPath: m_fontSize
-      value: 40
-      objectReference: {fileID: 0}
-    - target: {fileID: 9078752142007427694, guid: a3bb75f11e3284f4ab1eaf856d50388c, type: 3}
-      propertyPath: m_fontSizeBase
-      value: 40
+      value: Level 2
       objectReference: {fileID: 0}
     - target: {fileID: 9199752792719164770, guid: a3bb75f11e3284f4ab1eaf856d50388c, type: 3}
       propertyPath: m_Pivot.x
@@ -2139,14 +2025,6 @@ PrefabInstance:
       propertyPath: levelName
       value: Level 6
       objectReference: {fileID: 0}
-    - target: {fileID: 1007783461216187337, guid: a3bb75f11e3284f4ab1eaf856d50388c, type: 3}
-      propertyPath: levelImage
-      value: 
-      objectReference: {fileID: -7443756053782179069, guid: e2aeb3b373a49c74f92271e7de71a5f9, type: 3}
-    - target: {fileID: 1007783461216187337, guid: a3bb75f11e3284f4ab1eaf856d50388c, type: 3}
-      propertyPath: levelInfoPanel
-      value: 
-      objectReference: {fileID: 1602093591}
     - target: {fileID: 4604251424021537172, guid: a3bb75f11e3284f4ab1eaf856d50388c, type: 3}
       propertyPath: m_Name
       value: Level 6
@@ -2156,14 +2034,6 @@ PrefabInstance:
       value: 'Level 6
 
 '
-      objectReference: {fileID: 0}
-    - target: {fileID: 9078752142007427694, guid: a3bb75f11e3284f4ab1eaf856d50388c, type: 3}
-      propertyPath: m_fontSize
-      value: 40
-      objectReference: {fileID: 0}
-    - target: {fileID: 9078752142007427694, guid: a3bb75f11e3284f4ab1eaf856d50388c, type: 3}
-      propertyPath: m_fontSizeBase
-      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 9199752792719164770, guid: a3bb75f11e3284f4ab1eaf856d50388c, type: 3}
       propertyPath: m_Pivot.x
@@ -2264,28 +2134,12 @@ PrefabInstance:
     m_TransformParent: {fileID: 1399917120}
     m_Modifications:
     - target: {fileID: 1007783461216187337, guid: a3bb75f11e3284f4ab1eaf856d50388c, type: 3}
-      propertyPath: levelName
-      value: Level 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1007783461216187337, guid: a3bb75f11e3284f4ab1eaf856d50388c, type: 3}
-      propertyPath: levelImage
-      value: 
-      objectReference: {fileID: -7443756053782179069, guid: e2aeb3b373a49c74f92271e7de71a5f9, type: 3}
-    - target: {fileID: 1007783461216187337, guid: a3bb75f11e3284f4ab1eaf856d50388c, type: 3}
       propertyPath: levelInfoPanel
       value: 
       objectReference: {fileID: 1602093591}
     - target: {fileID: 4604251424021537172, guid: a3bb75f11e3284f4ab1eaf856d50388c, type: 3}
       propertyPath: m_Name
       value: Level 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 9078752142007427694, guid: a3bb75f11e3284f4ab1eaf856d50388c, type: 3}
-      propertyPath: m_fontSize
-      value: 40
-      objectReference: {fileID: 0}
-    - target: {fileID: 9078752142007427694, guid: a3bb75f11e3284f4ab1eaf856d50388c, type: 3}
-      propertyPath: m_fontSizeBase
-      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 9199752792719164770, guid: a3bb75f11e3284f4ab1eaf856d50388c, type: 3}
       propertyPath: m_Pivot.x
