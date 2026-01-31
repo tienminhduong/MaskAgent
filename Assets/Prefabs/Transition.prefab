@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6019027938943969569}
   - component: {fileID: 6199422582174150697}
   - component: {fileID: 8898320143913627753}
+  - component: {fileID: 544307299352161162}
   m_Layer: 5
   m_Name: Transition
   m_TagString: Untagged
@@ -75,6 +76,20 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &544307299352161162
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1994977054412296310}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a0f574e7aa3e6d4a9d7051310f48ac8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Transition
+  fadeImage: {fileID: 8898320143913627753}
+  fadeDuration: 1
 --- !u!1 &4495812647228686323
 GameObject:
   m_ObjectHideFlags: 0
@@ -84,7 +99,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2984047004629691367}
-  - component: {fileID: 6076390786926983652}
   - component: {fileID: 7025916158787720193}
   - component: {fileID: 5461532647405887877}
   - component: {fileID: 5239798543676152840}
@@ -115,20 +129,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!114 &6076390786926983652
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4495812647228686323}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8a0f574e7aa3e6d4a9d7051310f48ac8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Transition
-  fadeImage: {fileID: 8898320143913627753}
-  fadeDuration: 1
 --- !u!223 &7025916158787720193
 Canvas:
   m_ObjectHideFlags: 0
@@ -150,7 +150,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 0
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 10
   m_TargetDisplay: 0
 --- !u!114 &5461532647405887877
 MonoBehaviour:

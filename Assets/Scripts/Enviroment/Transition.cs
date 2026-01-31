@@ -2,17 +2,21 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Transition : MonoBehaviour
+public class Transition : Singleton<Transition>
 {
     [SerializeField] private Image fadeImage;
-    [SerializeField] private float fadeDuration = 1f;
+    private float fadeDuration = 1.5f;
 
     private Coroutine fadeCoroutine;
 
-    private void Awake()
+    protected override void Awake()
     {
+        base.Awake();
         if (fadeImage == null)
             fadeImage = GetComponent<Image>();
+    }
+    private void Start()
+    {
         FadeIn();
     }
 
@@ -36,6 +40,9 @@ public class Transition : MonoBehaviour
 
     private IEnumerator FadeCoroutine(float from, float to)
     {
+        if (fadeImage == null)
+            fadeImage = GetComponent<Image>();
+
         float time = 0f;
         Color color = fadeImage.color;
 
