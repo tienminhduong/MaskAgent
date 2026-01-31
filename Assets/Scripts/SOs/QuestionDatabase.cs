@@ -6,12 +6,12 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "QuestionDatabase", menuName = "Scriptable Objects/QuestionDatabase")]
 public class QuestionDatabase : ScriptableObject
 {
-    public List<Question> QuestionList = new List<Question>();
+    public List<NoteInfo> QuestionList = new List<NoteInfo>();
 
     public string CreateQuestion(HumanInfo humanInfo)
     {
         int randomIndex = UnityEngine.Random.Range(0, QuestionList.Count);
-        Question question = QuestionList[randomIndex];
+        NoteInfo question = QuestionList[randomIndex];
 
         string result = "";
 
@@ -56,7 +56,7 @@ public class QuestionDatabase : ScriptableObject
 }
 
 [Serializable]
-public class Question
+public class NoteInfo
 {
     public List<string> QuestionSegments = new List<string>();
     public List<InfoPosition> InfoPositions = new List<InfoPosition>();

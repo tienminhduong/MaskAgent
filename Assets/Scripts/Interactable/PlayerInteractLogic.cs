@@ -3,13 +3,16 @@ using UnityEngine;
 public class PlayerInteractLogic : MonoBehaviour
 {
     [SerializeField] private IInteractable overlappedInteractable;
-
     public IInteractable OverlappedInteractable => overlappedInteractable;
+    public Vector3 CheckpointPosition { get; private set; }
+
 
     public void SetOverlappedInteractable(IInteractable interactable)
     {
         overlappedInteractable = interactable;
-        Debug.Log($"Set overlapped interactable: {interactable}");
+
+        if (interactable is Checkpoint checkpoint)
+            CheckpointPosition = checkpoint.transform.position;
     }
 
     public void RemoveOverlappedInteractable(IInteractable interactable)
