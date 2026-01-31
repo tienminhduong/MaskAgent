@@ -15,16 +15,9 @@ public class RunState : FSMState
     public override void UpdateState(float delta)
     {
         player.HandleMoving();
-        player.HandleJump();
-
         if (player.HandleMoving() == false)
         {
             ChangeState(new IdleState());
         }
-        if(player.IsGrounded() == false)
-        {
-            ChangeState(new FallState());
-        }
-
     }
 }
