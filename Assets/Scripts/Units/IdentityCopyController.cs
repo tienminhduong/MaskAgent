@@ -1,4 +1,4 @@
-using DG.Tweening;
+﻿using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -20,6 +20,12 @@ public class IdentityCopyController : MonoBehaviour
     private Vector2 targetPos;
 
     private Tween maskBounceTween;
+    private Coroutine scanningRoutine;
+
+    // ================= Resume data =================
+
+    private IInteractable cachedTarget;
+    private float cachedProgress; // 0..scanDuration
 
     public bool IsCopying => isCopying;
 
@@ -34,66 +40,89 @@ public class IdentityCopyController : MonoBehaviour
         if (isCopying)
             return;
 
-        initialPos = popupPanel.anchoredPosition;
+        var currentTarget = player.PlayerInteractLogic.OverlappedInteractable;
 
-        Vector3 worldPos = player.transform.position + new Vector3(0, 1.5f, 0);
-        Vector2 screenPos = Camera.main.WorldToScreenPoint(worldPos);
+        // Nếu là human khác → reset progress
+        if (currentTarget != cachedTarget)
+        {
+            cachedTarget = currentTarget;
+            cachedProgress = 0f;
+        }
+
+        Vector3 playerPos = player.transform.position;
+        Vector2 screenPos = Camera.main.WorldToScreenPoint(playerPos);
 
         float ratio = 1 / canvas.localScale.x;
+        initialPos = screenPos * ratio;
+
+        Vector3 worldPos = player.transform.position + new Vector3(0, 1.5f, 0);
+        screenPos = Camera.main.WorldToScreenPoint(worldPos);
         targetPos = screenPos * ratio;
 
         popupPanel.gameObject.SetActive(true);
-        StartCoroutine(StartScanning(player));
-    }
 
+        scanningRoutine = StartCoroutine(StartScanning(player));
+    }
 
     private IEnumerator StartScanning(PlayerController player)
     {
         isCopying = true;
 
-        Sequence popupSequence = DOTween.Sequence();
-        popupSequence.Append(popupPanel.DOAnchorPos(targetPos, popupExpandDuration).SetEase(Ease.OutBack));
-        popupSequence.Append(popupPanel.DOScale(1f, popupExpandDuration).SetEase(Ease.OutBack));
-
-        while (popupSequence.IsActive() && !popupSequence.IsComplete())
-        {
-            if (!player.IsCopyPressed)
-            {
-                EndCopy(player);
-            }
-
-            yield return null;
-        }
-
-        // start bounce icon
-        maskIcon.localScale = Vector3.one;
-        maskBounceTween = maskIcon.DOScale(1.15f, 0.5f).SetEase(Ease.InOutSine).SetLoops(-1, LoopType.Yoyo);
-
-        float elapsed = 0f;
-        while (elapsed < scanDuration)
-        {
-            elapsed += Time.deltaTime;
-            copySlider.fillAmount = Mathf.Clamp01(elapsed / scanDuration);
-            
-            if (player.PlayerInteractLogic.OverlappedInteractable == null || !player.IsCopyPressed)
-            {
-                EndCopy(player);
-            }
-
-            yield return null;
-        }
-
-        EndCopy(player);
-    }
-
-    public void EndCopy(PlayerController player)
-    {
-        isCopying = false;
-
-        // TO DO: Apply the copied identity to the player
-
         popupPanel.localScale = Vector3.zero;
         popupPanel.anchoredPosition = initialPos;
+
+        // load lại progress cũ
+        copySlider.fillAmount = cachedProgress / scanDuration;
+
+        Sequence popupSequence = DOTween.Sequence();
+        popupSequence.Append(popupPanel.DOAnchorPos(targetPos, popupExpandDuration).SetEase(Ease.OutBack));
+        popupSequence.Join(popupPanel.DOScale(1f, popupExpandDuration).SetEase(Ease.OutBack));
+
+        yield return popupSequence.WaitForCompletion();
+
+        maskIcon.localScale = Vector3.one;
+        maskBounceTween = maskIcon.DOScale(1.15f, 0.5f)
+            .SetEase(Ease.InOutSine)
+            .SetLoops(-1, LoopType.Yoyo);
+
+        float elapsed = cachedProgress;
+
+        while (elapsed < scanDuration)
+        {
+            if (!player.IsCopyPressed ||
+                player.PlayerInteractLogic.OverlappedInteractable != cachedTarget)
+            {
+                // lưu lại tiến trình
+                cachedProgress = elapsed;
+                EndCopy(player, false);
+                yield break;
+            }
+
+            elapsed += Time.deltaTime;
+            copySlider.fillAmount = elapsed / scanDuration;
+
+            yield return null;
+        }
+
+        // copy xong → clear cache
+        cachedProgress = 0f;
+        cachedTarget = null;
+
+        EndCopy(player, true);
+    }
+
+    public void EndCopy(PlayerController player, bool success = false)
+    {
+        if (!isCopying)
+            return;
+
+        isCopying = false;
+
+        if (scanningRoutine != null)
+        {
+            StopCoroutine(scanningRoutine);
+            scanningRoutine = null;
+        }
 
         if (maskBounceTween != null && maskBounceTween.IsActive())
         {
@@ -101,6 +130,14 @@ public class IdentityCopyController : MonoBehaviour
             maskIcon.localScale = Vector3.one;
         }
 
-        player.Fsm.ChangeState(new IdleState());
+        popupPanel.localScale = Vector3.zero;
+        popupPanel.anchoredPosition = initialPos;
+
+        if (success)
+        {
+            player.ChangeIdentity();
+        }
+
+        player.ForceStopChecking();
     }
 }
