@@ -14,17 +14,33 @@ public class CharacterInteractLogic : MonoBehaviour
         baseCharacter = transform.parent.GetComponent<BaseCharacter>();
     }
 
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.transform.parent.TryGetComponent(out IInteractable interactable))
+        {
+            SetOverlappedInteractable(interactable);
+        }
+    }
+
+    void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.transform.parent.TryGetComponent(out IInteractable interactable))
+        {
+            RemoveOverlappedInteractable(interactable);
+        }
+    }
+
     public void SetOverlappedInteractable(IInteractable interactable)
     {
         if (interactable is PlayerController playerController)
         {
-            if (playerController.CopiedInfo == null || playerController.CopiedInfo.Name.Equals(baseCharacter.HumanInfo.Name))
+            if (playerController.CopiedInfo == null || playerController.CopiedInfo.Name == baseCharacter.HumanInfo.Name)
             {
                 onGameOverEvent.RaiseEvent();
-                Debug.Log("Thua goi");
+                Debug.Log("Game Over triggered due to identity match.");
                 return;
             }
-            
+
             if (limitedRoles.Roles.Contains(playerController.PlayerInfo.Role))
             {
                 overlappedInteractable = interactable;
