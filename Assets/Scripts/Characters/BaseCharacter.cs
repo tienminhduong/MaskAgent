@@ -196,6 +196,11 @@ public class BaseCharacter : MonoBehaviour, IInteractable, ILureable
 
     public void Interacted(IInteractable interacted)
     {
+        fsm.ChangeState(new CharFreeze());
+    }
+    public void EndInteracted()
+    {
+        fsm.ChangeState(new CharIdle());
     }
 
     public void Overlapped(IInteractable overlapped)

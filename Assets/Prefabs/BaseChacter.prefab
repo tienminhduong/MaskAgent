@@ -117,7 +117,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 1
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!114 &475841799529201440
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -147,6 +147,9 @@ MonoBehaviour:
   moveSpeed: 5
   rotationSpeed: 10
   reachDistance: 0.1
+  idleBaseAngle: 0
+  idleRotateAngle: 45
+  idleRotateSpeed: 2
   patroPath:
   - {fileID: 0}
   - {fileID: 0}
@@ -162,6 +165,7 @@ MonoBehaviour:
   path: []
   isLoop: 1
   isLured: 0
+  humanInfo: {fileID: 0}
 --- !u!1 &3129901909307756038
 GameObject:
   m_ObjectHideFlags: 0
