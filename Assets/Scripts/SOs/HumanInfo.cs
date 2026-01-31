@@ -6,6 +6,6 @@ public class HumanInfo : ScriptableObject
     public string Name;
     public int Age;
     public string DoB;
-    public string Role;
+    public Role Role;
     public string Address;
 }
