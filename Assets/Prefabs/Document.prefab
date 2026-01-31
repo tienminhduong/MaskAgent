@@ -158,7 +158,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.03622675, y: -0.13041615}
+  m_Offset: {x: -0.04082191, y: -0.17636776}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -168,7 +168,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1.9129126, y: 2.651938}
+  m_Size: {x: 2.8043725, y: 3.6996336}
   m_EdgeRadius: 0
 --- !u!114 &470430942519619334
 MonoBehaviour:
@@ -182,5 +182,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a07d7d3e8ad09d9428776e0419495363, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InteractableObject
-  sprite: {fileID: 0}
-  type: {fileID: 0}
+  sprite: {fileID: 1138500593156416132}
+  type: {fileID: 11400000, guid: 139542e5eb8fb144e8a398f524ba7ea7, type: 2}
