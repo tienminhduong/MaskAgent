@@ -18,3 +18,4 @@ MonoBehaviour:
   Role: 1
   Address: Toronto, Canada
   SpriteLibrary: {fileID: 7108339969198208228, guid: 9e6a486b669b3ea49a2bf03cf8ff3144, type: 3}
+  profileImage: {fileID: -5684259304883879482, guid: 697131dd6dbd5b748898764e1a6d10ed, type: 3}

@@ -10,4 +10,5 @@ public class HumanInfo : ScriptableObject
     public Role Role;
     public string Address;
     public SpriteLibraryAsset SpriteLibrary;
+    public Sprite profileImage;
 }

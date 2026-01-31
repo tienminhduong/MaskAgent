@@ -14,6 +14,8 @@ public class IdentityCopyController : MonoBehaviour
     [SerializeField] private float popupExpandDuration = 1.5f;
     [SerializeField] private float scanDuration = 2.0f;
 
+    [SerializeField] private ProfilePanelController profilePanelController;
+
     private bool isCopying = false;
 
     private Vector2 initialPos;
@@ -136,6 +138,7 @@ public class IdentityCopyController : MonoBehaviour
         if (success)
         {
             player.ChangeIdentity();
+            profilePanelController.ShowProfilePanel(player.PlayerInfo);
         }
 
         player.ForceStopChecking();

@@ -17,3 +17,5 @@ MonoBehaviour:
   DOB: 15/09/2004
   Role: 2
   Address: Sydney, Australia
+  SpriteLibrary: {fileID: 0}
+  profileImage: {fileID: -7285561340261217417, guid: 5bf2e18c37b19b34394249099b1095cb, type: 3}
