@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.U2D.Animation;
 
 [CreateAssetMenu(fileName = "HumanInfo", menuName = "Scriptable Objects/HumanInfo")]
 public class HumanInfo : ScriptableObject
@@ -8,4 +9,5 @@ public class HumanInfo : ScriptableObject
     public string DOB;
     public Role Role;
     public string Address;
+    public SpriteLibraryAsset SpriteLibrary;
 }
