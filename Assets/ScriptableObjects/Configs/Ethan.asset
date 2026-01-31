@@ -17,3 +17,5 @@ MonoBehaviour:
   DOB: 08/02/1991
   Role: 0
   Address: Berlin, Germany
+  SpriteLibrary: {fileID: 7108339969198208228, guid: 9e6a486b669b3ea49a2bf03cf8ff3144, type: 3}
+  profileImage: {fileID: -3735334799586237245, guid: 7ffbb3c74ed91ca4c9128e3eaec6c80a, type: 3}

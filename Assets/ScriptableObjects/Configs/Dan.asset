@@ -17,3 +17,5 @@ MonoBehaviour:
   DOB: 27/04/1997
   Role: 3
   Address: London, UK
+  SpriteLibrary: {fileID: 0}
+  profileImage: {fileID: -2402334810721026014, guid: cbc0c57d7dcbaf246933b7842175baa2, type: 3}
