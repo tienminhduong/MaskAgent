@@ -2,32 +2,28 @@ using UnityEngine;
 
 public class PickupableItem : MonoBehaviour
 {
-    [SerializeField] SpriteRenderer sprite;
     [SerializeField] ItemType type;
+    [SerializeField] SpriteRenderer spriteRenderer;
     bool isPlayerInside = false;
 
-    void OnTriggerEnter2D(Collider2D other)
+    private void Start()
     {
-        if (other.CompareTag("Player"))
+        spriteRenderer.sprite = type.sprite;
+    }
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Player"))
         {
-            // Here you can add logic to add the item to the player's inventory
-            Debug.Log($"Interacting with: {type.name}");
-
-            isPlayerInside = true;
-
-            // Show UI feedback for picking up the item
+            Debug.Log("Player is inside");
+            // Hide UI feedback for picking up the item
             //...
         }
     }
 
-    private void OnTriggerExit2D(Collider2D collision)
+    public void PickUp()
     {
-        if (collision.CompareTag("Player"))
-        {
-            isPlayerInside = false;
-
-            // Hide UI feedback for picking up the item
-            //...
-        }
+        Inventory.Instance.AddObject(type);
+        Destroy(gameObject);
     }
 }

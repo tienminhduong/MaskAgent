@@ -12,7 +12,7 @@ public class Inventory : MonoBehaviour
         {
             if (_instance == null)
             {
-                _instance = FindObjectOfType<Inventory>();
+                _instance = FindFirstObjectByType<Inventory>();
                 if (_instance == null)
                 {
                     GameObject singletonObject = new GameObject(typeof(Inventory).Name);
@@ -26,7 +26,7 @@ public class Inventory : MonoBehaviour
     #endregion
     [SerializeField] private List<ItemType> currentObjects;
 
-    public bool hasObject(ItemType objectType)
+    public bool HasObject(ItemType objectType)
     {
         foreach (var obj in currentObjects)
         {
@@ -38,12 +38,12 @@ public class Inventory : MonoBehaviour
         return false;
     }
 
-    public void removeObject(ItemType objectType)
+    public void RemoveObject(ItemType objectType)
     {
         currentObjects.Remove(objectType);
     }
 
-    public void addObject(ItemType objectType)
+    public void AddObject(ItemType objectType)
     {
         currentObjects.Add(objectType);
     }

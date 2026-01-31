@@ -136,7 +136,7 @@ public class PlayerController : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-
+        
     }
 
     private void OnCollisionExit2D(Collision2D collision)
@@ -144,13 +144,28 @@ public class PlayerController : MonoBehaviour
 
     }
 
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Item")){
+            Debug.Log("Collided with Item");
+        }
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        
     }
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-
+        if (collision.gameObject.CompareTag("Item"))
+        {
+            Debug.Log("Collided with Item");
+            if (isInteract)
+            {
+                collision.gameObject.GetComponent<PickupableItem>().PickUp();
+            }
+        }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
