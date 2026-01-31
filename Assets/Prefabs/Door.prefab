@@ -11,6 +11,9 @@ GameObject:
   - component: {fileID: 3790600897488316431}
   - component: {fileID: 6388220872181190536}
   - component: {fileID: 1890063094607808518}
+  - component: {fileID: 2012389073848323138}
+  - component: {fileID: 733581079168183156}
+  - component: {fileID: 9103821877477330691}
   m_Layer: 0
   m_Name: Door
   m_TagString: Untagged
@@ -105,6 +108,67 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Door
   sprite: {fileID: 6388220872181190536}
+  requiredItems: []
+--- !u!114 &2012389073848323138
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3644756606780104602}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f37c7f28d5713b4aa5dff638fbefa8d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SOEventSystem.InteractableListener
+  eventPublisher: {fileID: 11400000, guid: aa80fffeb338cbd439e17dbd5fa61c54, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &733581079168183156
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3644756606780104602}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f37c7f28d5713b4aa5dff638fbefa8d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SOEventSystem.InteractableListener
+  eventPublisher: {fileID: 11400000, guid: 78fb5e4d8e915594195516434ba6ead6, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &9103821877477330691
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3644756606780104602}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f37c7f28d5713b4aa5dff638fbefa8d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SOEventSystem.InteractableListener
+  eventPublisher: {fileID: 11400000, guid: a2826bbe88f0e8b41b2a37e066340011, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1890063094607808518}
+        m_TargetAssemblyTypeName: Door, Assembly-CSharp
+        m_MethodName: Interacted
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1001 &4806953057627233208
 PrefabInstance:
   m_ObjectHideFlags: 0

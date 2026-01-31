@@ -7,24 +7,13 @@ public class Door : MonoBehaviour, IInteractable
 {
     [SerializeField] SpriteRenderer sprite;
     [SerializeField] List<ItemType> requiredItems;
-    BoxCollider2D leftCollider;
-    BoxCollider2D rightCollider;
-    BoxCollider2D collider;
+    BoxCollider2D doorCollider;
     bool isOpen = false;
 
     void Start()
     {
-        //Set up colliders, left and right fit the whole door sprite
-/*        leftCollider = gameObject.AddComponent<BoxCollider2D>();
-        rightCollider = gameObject.AddComponent<BoxCollider2D>();
-
-        leftCollider.offset = new Vector2(-sprite.size.x / 4, 0);
-        leftCollider.size = new Vector2(sprite.size.x / 2, sprite.size.y);
-        rightCollider.offset = new Vector2(sprite.size.x / 4, 0);
-        rightCollider.size = new Vector2(sprite.size.x / 2, sprite.size.y);*/
-
-        collider = gameObject.AddComponent<BoxCollider2D>();
-        collider.size = new Vector2(sprite.size.x / 2, sprite.size.y);
+        doorCollider = gameObject.AddComponent<BoxCollider2D>();
+        doorCollider.size = new Vector2(sprite.size.x, sprite.size.y);
 
     }
 
@@ -46,32 +35,16 @@ public class Door : MonoBehaviour, IInteractable
         return true;
     }
 
-    void Open()
+    void ClearAllRequiredItemsFromInventory()
     {
-        // Animate door opening with scaling down the y axis to 0 and moving the offset
-        float duration = 0.5f;
+       foreach (var item in requiredItems)
+       {
+            Inventory.Instance.RemoveItem(item);  
+       }
+    }
 
-       /* // Animate left collider
-        leftCollider.DOKill();
-        leftCollider.transform.DOScaleY(0, duration).OnComplete(() =>
-        {
-            leftCollider.offset = new Vector2(-sprite.size.x / 2, 0);
-        });
-
-        // Animate right collider
-        rightCollider.DOKill();
-        rightCollider.transform.DOScaleY(0, duration).OnComplete(() =>
-        {
-            rightCollider.offset = new Vector2(sprite.size.x / 2, 0);
-        });*/
-
-        collider.DOKill();
-        collider.transform.DOScaleY(0, duration).OnComplete(() =>
-        {
-            collider.enabled = false;
-            sprite.enabled = false;
-        });
-
+    void Open()
+    { 
         Debug.Log("Door: Opened.");
         isOpen = true;
     }
@@ -88,6 +61,8 @@ public class Door : MonoBehaviour, IInteractable
             Debug.Log("Door: Already opened.");
         }
         Open();
+        ClearAllRequiredItemsFromInventory();
+        Destroy(gameObject);
     }
 
     public void Overlapped(IInteractable overlapped)
