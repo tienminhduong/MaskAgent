@@ -10,18 +10,12 @@ namespace SOEventSystem
 
         private void OnEnable()
         {
-            if (eventPublisher != null)
-            {
-                eventPublisher.ListenEvent(OnEventRaised);
-            }
+            eventPublisher.ListenEvent(OnEventRaised);
         }
 
         private void OnDisable()
         {
-            if (eventPublisher != null)
-            {
-                eventPublisher.UnListenEvent(OnEventRaised);
-            }
+            eventPublisher.UnListenEvent(OnEventRaised);
         }
 
         private void OnEventRaised(T parameter)

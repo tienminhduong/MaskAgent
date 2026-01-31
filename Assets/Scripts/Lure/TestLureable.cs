@@ -1,16 +1,23 @@
 using UnityEngine;
 
-public class TestLureable : MonoBehaviour
+public class TestLureable : MonoBehaviour, ILureable
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+    [SerializeField] private HumanInfo humanInfo;
+    public HumanInfo HumanInfo => humanInfo;
 
-    // Update is called once per frame
+    public int Direction;
+
     void Update()
     {
-        
+        transform.Translate(Direction * Time.deltaTime * Vector2.right);
+    }
+
+    public void OnLured(Role lurerRole)
+    {
+        Debug.Log($"Attempting to lure {humanInfo.Name} as {lurerRole}");
+        if (!((ILureable)this).IsLureable(lurerRole)) return;
+
+        Debug.Log("Lured " + humanInfo.Name);
+        Direction *= -1;
     }
 }
