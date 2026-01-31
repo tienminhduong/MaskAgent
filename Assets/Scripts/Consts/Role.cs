@@ -1,6 +1,6 @@
 public enum Role
 {
-    Tranitor,
+    Janitor,
     Security,
     Staff,
     Director,
