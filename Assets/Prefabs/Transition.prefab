@@ -89,7 +89,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Transition
   fadeImage: {fileID: 8898320143913627753}
-  fadeDuration: 1
 --- !u!1 &4495812647228686323
 GameObject:
   m_ObjectHideFlags: 0
@@ -101,7 +100,6 @@ GameObject:
   - component: {fileID: 2984047004629691367}
   - component: {fileID: 7025916158787720193}
   - component: {fileID: 5461532647405887877}
-  - component: {fileID: 5239798543676152840}
   m_Layer: 5
   m_Name: Transition
   m_TagString: Untagged
@@ -175,20 +173,3 @@ MonoBehaviour:
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
   m_PresetInfoIsWorld: 0
---- !u!114 &5239798543676152840
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4495812647228686323}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dc42784cf147c0c48a680349fa168899, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.GraphicRaycaster
-  m_IgnoreReversedGraphics: 1
-  m_BlockingObjects: 0
-  m_BlockingMask:
-    serializedVersion: 2
-    m_Bits: 4294967295

@@ -1,5 +1,7 @@
 using SOEventSystem;
+using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class WinZone : MonoBehaviour
 {
@@ -9,7 +11,19 @@ public class WinZone : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            onLevelComplete.RaiseEvent();
+            StartCoroutine(PlaySequence());
         }
+    }
+    private IEnumerator PlaySequence()
+    {
+        if (Transition.TryGetInstance())
+        {
+            Debug.Log("Got it");
+        }
+        Transition.Instance.FadeOut();
+
+        yield return new WaitForSeconds(1.5f);
+
+        onLevelComplete.RaiseEvent();
     }
 }
