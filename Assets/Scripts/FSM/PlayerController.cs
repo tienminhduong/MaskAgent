@@ -151,12 +151,19 @@ public class PlayerController : MonoBehaviour
     {
         if (isCopy.isPressed)
         {
-            if (!isChecking)
-            {
-                StartCoroutine(StartCheckRoutine());
-            }
-        }
+            _fsm.ChangeState(new ScanState());
+        } 
     }
+    public void OnScanState()
+    {
+        StartCoroutine(StartCheckRoutine());
+    }
+    public void OffScanState()
+    {
+        StopCoroutine(StartCheckRoutine());
+    }    
+
+
 
     // =========== Collision ================
 
@@ -226,6 +233,8 @@ public class PlayerController : MonoBehaviour
         }
 
         isChecking = false;
+        _fsm.ChangeState(new IdleState());
+
     }
 
 }
