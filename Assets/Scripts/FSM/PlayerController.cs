@@ -17,6 +17,9 @@ public class PlayerController : MonoBehaviour
     // ================= Props ================-
     [SerializeField] float moveSpeed = 5.0f;
     [SerializeField] float scaleSpeed = 2.5f;
+
+    [SerializeField] float rotationSpeed = 10f;
+
     bool isInteract = false;
     bool isRunning = false;
 
@@ -77,8 +80,14 @@ public class PlayerController : MonoBehaviour
     {
         if (input.magnitude < 0.1f) return;
 
-        float angle = Mathf.Atan2(input.y, input.x) * Mathf.Rad2Deg;
-        _rigidbody.rotation = angle;
+        float targetAngle = Mathf.Atan2(input.y, input.x) * Mathf.Rad2Deg;
+        float newAngle = Mathf.LerpAngle(
+            _rigidbody.rotation,
+            targetAngle,
+            rotationSpeed * Time.fixedDeltaTime
+        );
+
+        _rigidbody.rotation = newAngle;
     }
 
     // ========= INPUT EVENTS =========
