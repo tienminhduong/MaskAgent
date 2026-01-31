@@ -9,7 +9,7 @@ using UnityEngine.Windows;
 [RequireComponent(typeof(FSM))]
 
 
-public class BaseCharacter : MonoBehaviour
+public class BaseCharacter : MonoBehaviour, IInteractable, ILureable
 {
     [SerializeField] protected FSM fsm;
     protected Collider2D col;
@@ -28,6 +28,9 @@ public class BaseCharacter : MonoBehaviour
     protected int currentIndex;
     [SerializeField] protected bool isLoop = true;
     [SerializeField] protected bool isLured = false;
+    [SerializeField] protected HumanInfo humanInfo;
+
+    public HumanInfo HumanInfo => humanInfo;
 
     protected virtual void Awake()
     {
@@ -45,14 +48,14 @@ public class BaseCharacter : MonoBehaviour
 
     public void SwitchToPatroPath()
     {
-        if(currentIndex == 0)
+        if (currentIndex == 0)
             path = patroPath;
-    }    
+    }
     public void SwitchToLuredPath()
     {
         if (currentIndex == 0)
             path = luredPath;
-    }    
+    }
     public virtual bool HandleMoving()
     {
         if (path == null || path.Count == 0)
@@ -60,12 +63,12 @@ public class BaseCharacter : MonoBehaviour
             StopMove();
             return false;
         }
-        if(isLured)
+        if (isLured)
             SwitchToLuredPath();
         else
             SwitchToPatroPath();
 
-            Vector2 dir = GetDirectionToTarget();
+        Vector2 dir = GetDirectionToTarget();
         if (dir == Vector2.zero) return false;
 
         RotateTo(dir);
@@ -156,4 +159,21 @@ public class BaseCharacter : MonoBehaviour
         }
     }
 
+    public void OnLured(Role lurerRole)
+    {
+        if (!((ILureable)this).IsLureable(lurerRole)) return;
+        isLured = true;
+    }
+
+    public void Interacted(IInteractable interacted)
+    {
+    }
+
+    public void Overlapped(IInteractable overlapped)
+    {
+    }
+
+    public void OverlapExited(IInteractable overlapExited)
+    {
+    }
 }

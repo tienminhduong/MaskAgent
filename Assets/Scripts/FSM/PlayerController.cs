@@ -19,6 +19,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float scaleSpeed = 2.5f;
 
     [SerializeField] float rotationSpeed = 10f;
+    [SerializeField] HumanInfo playerInfo;
 
     PlayerInteractLogic playerInteractLogic;
 
@@ -108,6 +109,11 @@ public class PlayerController : MonoBehaviour
         Debug.Log("PlayerController OnInteract: " + this.isInteract);
         if (this.isInteract)
             playerInteractLogic.Interact();
+    }
+
+    public void OnLure(InputValue lureValue)
+    {
+        playerInteractLogic.Lure(playerInfo.Role);
     }
 
     // =========== Collision ================
