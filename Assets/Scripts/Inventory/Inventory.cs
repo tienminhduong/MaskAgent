@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections.Generic;
 
 public class Inventory : MonoBehaviour
 {
@@ -23,4 +24,27 @@ public class Inventory : MonoBehaviour
     }
 
     #endregion
+    [SerializeField] private List<ObjectType> currentObjects;
+
+    public bool hasObject(ObjectType objectType)
+    {
+        foreach (var obj in currentObjects)
+        {
+            if (obj == objectType)
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public void removeObject(ObjectType objectType)
+    {
+        currentObjects.Remove(objectType);
+    }
+
+    public void addObject(ObjectType objectType)
+    {
+        currentObjects.Add(objectType);
+    }
 }
