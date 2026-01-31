@@ -168,36 +168,6 @@ public class PlayerController : MonoBehaviour, IInteractable
         StopCoroutine(StartCheckRoutine());
     }
 
-
-
-    // =========== Collision ================
-
-    //Vector2 boxSize = new Vector2(0.6f, 0.1f);
-    //Vector3 boxCenterOffset = Vector3.down * 0.515f;
-
-    //public bool IsGrounded()
-    //{
-    //    Vector2 boxCenter = (Vector2)transform.position + (Vector2)boxCenterOffset;
-
-    //    Collider2D hit = Physics2D.OverlapBox(
-    //        boxCenter,
-    //        boxSize,
-    //        0f,
-    //        LayerMask.GetMask(LayerMaskName.Ground)
-    //    );
-    //    return hit != null;
-    //}
-    //void OnDrawGizmos()
-    //{
-    //    Vector2 boxCenter = (Vector2)transform.position + (Vector2)boxCenterOffset;
-
-    //    // Change color based on grounded state (Editor only)
-    //    Gizmos.color = IsGrounded() ? Color.green : Color.red;
-
-    //    Gizmos.DrawWireCube(boxCenter, boxSize);
-
-    //}
-
     public void RaiseSuspectLevel()
     {
         suspectLevel++;
@@ -252,5 +222,10 @@ public class PlayerController : MonoBehaviour, IInteractable
 
     public void OverlapExited(IInteractable overlapExited)
     {
+    }
+
+    public void TeleportToCheckpoint()
+    {
+        transform.position = playerInteractLogic.CheckpointPosition;
     }
 }
