@@ -1,7 +1,8 @@
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using SOEventSystem;
+using System.Collections;
 
 public class LevelInfoPanel : MonoBehaviour
 {
@@ -30,6 +31,20 @@ public class LevelInfoPanel : MonoBehaviour
         //transition to the level name
         Debug.Log("Loading Level: " + levelNameText.text);
         onLevelEntered.RaiseEvent(levelNameText.text.ToString());
+        StartCoroutine(PlaySequence());
+    }
+
+    private IEnumerator PlaySequence()
+    {
+        // Fade out
+        if(Transition.TryGetInstance())
+            Transition.TryGetInstance().FadeOut();
+
+        // Đợi 3 giây
+        yield return new WaitForSeconds(1.5f);
+
+        // Load scene
         SceneManager.LoadScene(levelNameText.text);
     }
+
 }
