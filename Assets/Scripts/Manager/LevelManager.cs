@@ -1,5 +1,6 @@
 using SOEventSystem;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class LevelManager : Singleton<LevelManager>
 {
@@ -15,5 +16,6 @@ public class LevelManager : Singleton<LevelManager>
 
        // Handle level complete logic here
         Debug.Log("Level Complete!");
+        SceneManager.LoadScene("LevelSelectionScene");
     }
 }
