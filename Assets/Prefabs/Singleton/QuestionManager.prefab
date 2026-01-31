@@ -1,0 +1,65 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &4817364566195543935
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1450269222859088246}
+  - component: {fileID: 3946002145998683595}
+  m_Layer: 0
+  m_Name: QuestionManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1450269222859088246
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4817364566195543935}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.77351, y: -0.09117, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3946002145998683595
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4817364566195543935}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb7a6e36d38069f43a83eaaab10de93e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::QuestionManager
+  questionTypeConfig:
+  - {fileID: 11400000, guid: bfe1b16b58072be4897c9199cc68cebb, type: 2}
+  - {fileID: 11400000, guid: c7e4dfa43cf3df145b0f9c1382f1d72b, type: 2}
+  - {fileID: 11400000, guid: dec8ba2e9fd2f00438b3e5ff011c4072, type: 2}
+  - {fileID: 11400000, guid: c926748eb6aae634183469ec468e45a7, type: 2}
+  inLevelHumanInfos:
+  - {fileID: 11400000, guid: 015f664a36359314bb16b0a249b2f0a6, type: 2}
+  - {fileID: 11400000, guid: e1df745987fea9f41a6792aa94250466, type: 2}
+  - {fileID: 11400000, guid: 108747d148b537f4daafa42d58def038, type: 2}
+  - {fileID: 11400000, guid: a1d44dd0b1c0538498b91f36b0be63ac, type: 2}
+  - {fileID: 11400000, guid: d475d90a68c7e6e42804fabe44e0229c, type: 2}
+  copiedHumanInfos:
+  - {fileID: 11400000, guid: 015f664a36359314bb16b0a249b2f0a6, type: 2}
+  - {fileID: 11400000, guid: e1df745987fea9f41a6792aa94250466, type: 2}
+  playerHumanInfo: {fileID: 11400000, guid: 015f664a36359314bb16b0a249b2f0a6, type: 2}
+  currentQuestion:
+    QuestionText: 
+    CorrectAnswer: 
+    Options: []

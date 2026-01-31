@@ -10,7 +10,7 @@ using UnityEngine.U2D.Animation;
 [RequireComponent(typeof(Collider2D))]
 [RequireComponent(typeof(Rigidbody2D))]
 [RequireComponent(typeof(FSM))]
-public class PlayerController : MonoBehaviour
+public class PlayerController : MonoBehaviour, IInteractable
 {
     Collider2D _collider;
     Rigidbody2D _rigidbody;
@@ -64,6 +64,11 @@ public class PlayerController : MonoBehaviour
         get { return _fsm; }
         set { _fsm = value; }
     }
+    public HumanInfo PlayerInfo
+    {
+        get { return playerInfo; }
+        set { playerInfo = value; }
+    }
 
     public PlayerInteractLogic PlayerInteractLogic
     {
@@ -85,7 +90,7 @@ public class PlayerController : MonoBehaviour
         _fsm = GetComponent<FSM>();
         playerInteractLogic = GetComponentInChildren<PlayerInteractLogic>();
 
-        if(scanZone != null)
+        if (scanZone != null)
             scanZone.localScale = Vector3.zero;
     }
 
@@ -178,16 +183,16 @@ public class PlayerController : MonoBehaviour
 
     public void OnCopy(InputValue isCopy)
     {
-        //IsCopyPressed = isCopy.isPressed;
+        IsCopyPressed = isCopy.isPressed;
 
-        //Debug.Log("PlayerController OnCopy: " + IsCopyPressed);
+        Debug.Log("PlayerController OnCopy: " + IsCopyPressed);
 
-        //if (isCopy.isPressed)
-        //{
-        //    if (isChecking || identityCopyController.IsCopying) return;
+        if (isCopy.isPressed)
+        {
+           if (isChecking || identityCopyController.IsCopying) return;
 
-        //    _fsm.ChangeState(new ScanState());
-        //} 
+           _fsm.ChangeState(new ScanState());
+        } 
     }
 
     public void OnScanState()
@@ -197,37 +202,7 @@ public class PlayerController : MonoBehaviour
     public void OffScanState()
     {
         StopCoroutine(StartCheckRoutine());
-    }    
-
-
-
-    // =========== Collision ================
-
-    //Vector2 boxSize = new Vector2(0.6f, 0.1f);
-    //Vector3 boxCenterOffset = Vector3.down * 0.515f;
-
-    //public bool IsGrounded()
-    //{
-    //    Vector2 boxCenter = (Vector2)transform.position + (Vector2)boxCenterOffset;
-
-    //    Collider2D hit = Physics2D.OverlapBox(
-    //        boxCenter,
-    //        boxSize,
-    //        0f,
-    //        LayerMask.GetMask(LayerMaskName.Ground)
-    //    );
-    //    return hit != null;
-    //}
-    //void OnDrawGizmos()
-    //{
-    //    Vector2 boxCenter = (Vector2)transform.position + (Vector2)boxCenterOffset;
-
-    //    // Change color based on grounded state (Editor only)
-    //    Gizmos.color = IsGrounded() ? Color.green : Color.red;
-
-    //    Gizmos.DrawWireCube(boxCenter, boxSize);
-
-    //}
+    }
 
     public void RaiseSuspectLevel()
     {
@@ -259,6 +234,22 @@ public class PlayerController : MonoBehaviour
         yield return null;
     }
 
+    public void Interacted(IInteractable interacted)
+    {
+    }
+
+    public void Overlapped(IInteractable overlapped)
+    {
+    }
+
+    public void OverlapExited(IInteractable overlapExited)
+    {
+    }
+
+    public void TeleportToCheckpoint()
+    {
+        transform.position = playerInteractLogic.CheckpointPosition;
+    }
     public void ForceStopChecking()
     {
         isChecking = false;

@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 4539602598224052293}
   - component: {fileID: 475841799529201440}
   - component: {fileID: 4017829469490990024}
+  - component: {fileID: 4573248446633749697}
   m_Layer: 0
   m_Name: BaseChacter
   m_TagString: Untagged
@@ -167,6 +168,35 @@ MonoBehaviour:
   isLoop: 1
   isLured: 0
   humanInfo: {fileID: 11400000, guid: a1d44dd0b1c0538498b91f36b0be63ac, type: 2}
+  onInteractedEvent: {fileID: 11400000, guid: a2826bbe88f0e8b41b2a37e066340011, type: 2}
+--- !u!114 &4573248446633749697
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1288376289938617795}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5ec52ab00de1a44bbe99f8b5033761b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SOEventSystem.VoidListener
+  publisher: {fileID: 11400000, guid: fa556c6c77c682f4e978718303769004, type: 2}
+  responses:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4017829469490990024}
+        m_TargetAssemblyTypeName: BaseCharacter, Assembly-CSharp
+        m_MethodName: EndInteracted
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &3129901909307756038
 GameObject:
   m_ObjectHideFlags: 0
