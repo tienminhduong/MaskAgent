@@ -118,7 +118,7 @@ public class PlayerController : MonoBehaviour
             playerInteractLogic.Interact();
     }
 
-    public void OnLure(InputValue lureValue)
+    public void HandleLure()
     {
         if (playerInteractLogic.Lure(playerInfo.Role))
             Debug.Log("Lure successful or no interactable.");

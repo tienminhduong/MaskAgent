@@ -333,7 +333,9 @@ MonoBehaviour:
   moveSpeed: 5
   scaleSpeed: 2.5
   rotationSpeed: 10
-  playerInfo: {fileID: 0}
+  playerInfo: {fileID: 11400000, guid: 108747d148b537f4daafa42d58def038, type: 2}
+  suspectLevel: 0
+  gameOverEvent: {fileID: 11400000, guid: 5ee0a84c175024b4b8a1aae9bb625231, type: 2}
 --- !u!114 &4717349365268952404
 MonoBehaviour:
   m_ObjectHideFlags: 0
