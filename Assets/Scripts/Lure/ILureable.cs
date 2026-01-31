@@ -1,6 +1,11 @@
 using UnityEngine;
 
-public class ILureable
+public interface ILureable
 {
-    
+    public HumanInfo HumanInfo { get; }
+
+    public bool IsLureable(Role lurerRole)
+    {
+        return LureableRoleMap.Roles[lurerRole].Contains(HumanInfo.Role);
+    }
 }
