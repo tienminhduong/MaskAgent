@@ -30,8 +30,6 @@ public class PlayerController : MonoBehaviour
 
     PlayerInteractLogic playerInteractLogic;
 
-    PlayerInteractLogic playerInteractLogic;
-
     bool isInteract = false;
     bool isRunning = false;
 
