@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class LevelInfoPanel : MonoBehaviour
 {
@@ -10,5 +11,11 @@ public class LevelInfoPanel : MonoBehaviour
     {
         levelNameText.text = levelName;
         levelImage.sprite = levelSprite;
+    }
+
+    public void PlayButtonClick()
+    {
+        //transition to the level name
+        SceneManager.LoadScene(levelNameText.text);
     }
 }
