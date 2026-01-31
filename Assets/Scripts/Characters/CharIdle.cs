@@ -11,11 +11,16 @@ public class CharIdle : FSMState
         rb = obj.GetComponent<Rigidbody2D>();
         //player.Animator.Play("Run");
         timer = Random.Range(3f, 5f);
+        character.SetIdleBaseAngle(rb.rotation);
+        character.StopMove();
     }
 
     public override void UpdateState(float delta)
     {
-        if (UpdateTimer(timer))
+        character.HandleIdle(timer);
+        if (UpdateTimer(delta))
+        {
             ChangeState(new CharPatro());
+        }    
     }
 }
