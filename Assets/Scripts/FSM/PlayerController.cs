@@ -32,8 +32,6 @@ public class PlayerController : MonoBehaviour
 
     PlayerInteractLogic playerInteractLogic;
 
-    PlayerInteractLogic playerInteractLogic;
-
     [Header("Scan zone Controller")]
     [SerializeField] private Transform scanZone;
     [SerializeField] private Transform scanEffect;
