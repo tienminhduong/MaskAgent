@@ -9,18 +9,22 @@ public class Door : MonoBehaviour, IInteractable
     [SerializeField] List<ItemType> requiredItems;
     BoxCollider2D leftCollider;
     BoxCollider2D rightCollider;
+    BoxCollider2D collider;
     bool isOpen = false;
 
     void Start()
     {
         //Set up colliders, left and right fit the whole door sprite
-        leftCollider = gameObject.AddComponent<BoxCollider2D>();
+/*        leftCollider = gameObject.AddComponent<BoxCollider2D>();
         rightCollider = gameObject.AddComponent<BoxCollider2D>();
 
         leftCollider.offset = new Vector2(-sprite.size.x / 4, 0);
         leftCollider.size = new Vector2(sprite.size.x / 2, sprite.size.y);
         rightCollider.offset = new Vector2(sprite.size.x / 4, 0);
-        rightCollider.size = new Vector2(sprite.size.x / 2, sprite.size.y);
+        rightCollider.size = new Vector2(sprite.size.x / 2, sprite.size.y);*/
+
+        collider = gameObject.AddComponent<BoxCollider2D>();
+        collider.size = new Vector2(sprite.size.x / 2, sprite.size.y);
 
     }
 
@@ -44,11 +48,32 @@ public class Door : MonoBehaviour, IInteractable
 
     void Open()
     {
-        // Animate door opening with scaling down the y axis to 0 and max (both side)
+        // Animate door opening with scaling down the y axis to 0 and moving the offset
+        float duration = 0.5f;
 
-        // Use two parralel LeanTween for scalling colliders to left and right
-        transform.D
+       /* // Animate left collider
+        leftCollider.DOKill();
+        leftCollider.transform.DOScaleY(0, duration).OnComplete(() =>
+        {
+            leftCollider.offset = new Vector2(-sprite.size.x / 2, 0);
+        });
 
+        // Animate right collider
+        rightCollider.DOKill();
+        rightCollider.transform.DOScaleY(0, duration).OnComplete(() =>
+        {
+            rightCollider.offset = new Vector2(sprite.size.x / 2, 0);
+        });*/
+
+        collider.DOKill();
+        collider.transform.DOScaleY(0, duration).OnComplete(() =>
+        {
+            collider.enabled = false;
+            sprite.enabled = false;
+        });
+
+        Debug.Log("Door: Opened.");
+        isOpen = true;
     }
 
     public void Interacted(IInteractable interacted)
