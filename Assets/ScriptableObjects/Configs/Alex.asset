@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::HumanInfo
   Name: Alex Carter
   Age: 21
-  DOB: 12/08/2005
-  Role: 2
-  Address: New York, USA
+  DOB: 2005
+  Role: 1
+  Address: Bac Lieu
+  SpriteLibrary: {fileID: 7108339969198208228, guid: 9e6a486b669b3ea49a2bf03cf8ff3144, type: 3}

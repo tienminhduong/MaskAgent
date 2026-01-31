@@ -6,6 +6,7 @@ public class PlayerInteractLogic : MonoBehaviour
     public IInteractable OverlappedInteractable => overlappedInteractable;
     public Vector3 CheckpointPosition { get; private set; }
 
+
     public void SetOverlappedInteractable(IInteractable interactable)
     {
         overlappedInteractable = interactable;

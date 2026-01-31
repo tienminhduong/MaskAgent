@@ -8,7 +8,7 @@ public class PickupableItem : MonoBehaviour, IInteractable
 
     private void Start()
     {
-        spriteRenderer.sprite = type.sprite;
+        //spriteRenderer.sprite = type.sprite;
     }
 
     /*private void OnTriggerStay2D(Collider2D collision)

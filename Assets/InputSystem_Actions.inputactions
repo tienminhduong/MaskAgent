@@ -99,10 +99,10 @@
                 {
                     "name": "Copy",
                     "type": "Button",
-                    "id": "f8549706-e32a-4a56-8f67-2d66689208ae",
+                    "id": "9a10090e-b4c6-43ed-97ea-0278bf0b85aa",
                     "expectedControlType": "",
                     "processors": "",
-                    "interactions": "",
+                    "interactions": "Press(behavior=2)",
                     "initialStateCheck": false
                 }
             ],
@@ -571,11 +571,11 @@
                 },
                 {
                     "name": "",
-                    "id": "5fea2722-8e50-4cb4-97e7-ec6b556c33c6",
+                    "id": "591dff28-22ee-4c10-8ece-6ef4191c467f",
                     "path": "<Keyboard>/c",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": ";Keyboard&Mouse",
                     "action": "Copy",
                     "isComposite": false,
                     "isPartOfComposite": false

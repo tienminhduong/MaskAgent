@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6796019157986589659}
   - component: {fileID: 8752092024758755491}
   - component: {fileID: 3292512850263865456}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: InteractableBox
   m_TagString: Human
   m_Icon: {fileID: 0}
@@ -91,5 +91,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0623df045a3e634fb1b90394f2cda60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::InteractableBox
+  character: {fileID: 0}
   onOverlapEvent: {fileID: 11400000, guid: aa80fffeb338cbd439e17dbd5fa61c54, type: 2}
   onOverlapExitEvent: {fileID: 11400000, guid: 78fb5e4d8e915594195516434ba6ead6, type: 2}
