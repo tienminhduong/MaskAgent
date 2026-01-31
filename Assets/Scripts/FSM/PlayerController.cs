@@ -92,11 +92,9 @@ public class PlayerController : MonoBehaviour
         if (moveInput.magnitude >= 0.1f)
         {
             _rigidbody.linearVelocity = moveInput * moveSpeed * ((isRunning) ? scaleSpeed : 1);
-            _animator.SetBool("isMoving", true);
             _fsm.ChangeState(new RunState());
             return true;
         }
-        _animator.SetBool("isMoving", false);
         _rigidbody.linearVelocity = Vector2.zero;
         return false;
     }
@@ -152,12 +150,19 @@ public class PlayerController : MonoBehaviour
     {
         if (isCopy.isPressed)
         {
-            if (!isChecking)
-            {
-                StartCoroutine(StartCheckRoutine());
-            }
-        }
+            _fsm.ChangeState(new ScanState());
+        } 
     }
+    public void OnScanState()
+    {
+        StartCoroutine(StartCheckRoutine());
+    }
+    public void OffScanState()
+    {
+        StopCoroutine(StartCheckRoutine());
+    }    
+
+
 
     // =========== Collision ================
 
@@ -227,6 +232,8 @@ public class PlayerController : MonoBehaviour
         }
 
         isChecking = false;
+        _fsm.ChangeState(new IdleState());
+
     }
 
 }
