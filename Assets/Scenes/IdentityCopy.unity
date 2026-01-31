@@ -352,6 +352,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ef9df820991feb419160f032fe762cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BaseCharacter
+--- !u!4 &859867181 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5254994636320846963, guid: 7f15db1aa2dd3db41a2bd165b5639ea8, type: 3}
+  m_PrefabInstance: {fileID: 1105161777}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &930760098 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7463722974442729074, guid: eb5ce917a8051554bbcb0b47b5d5a8c5, type: 3}
@@ -576,6 +581,14 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4368705995477911980, guid: 7f15db1aa2dd3db41a2bd165b5639ea8, type: 3}
+      propertyPath: scanZone
+      value: 
+      objectReference: {fileID: 1995385673}
+    - target: {fileID: 4368705995477911980, guid: 7f15db1aa2dd3db41a2bd165b5639ea8, type: 3}
+      propertyPath: scanEffect
+      value: 
+      objectReference: {fileID: 859867181}
+    - target: {fileID: 4368705995477911980, guid: 7f15db1aa2dd3db41a2bd165b5639ea8, type: 3}
       propertyPath: identityCopyController
       value: 
       objectReference: {fileID: 1698326619}
@@ -584,7 +597,8 @@ PrefabInstance:
       value: Player
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 5975432652630538645, guid: 7f15db1aa2dd3db41a2bd165b5639ea8, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7f15db1aa2dd3db41a2bd165b5639ea8, type: 3}
@@ -930,6 +944,11 @@ Transform:
 Transform:
   m_CorrespondingSourceObject: {fileID: 8602802869702056040, guid: eb5ce917a8051554bbcb0b47b5d5a8c5, type: 3}
   m_PrefabInstance: {fileID: 1520758386203907301}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1995385673 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4318673153683635639, guid: 7f15db1aa2dd3db41a2bd165b5639ea8, type: 3}
+  m_PrefabInstance: {fileID: 1105161777}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &2117293300
 GameObject:
