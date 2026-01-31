@@ -10,7 +10,6 @@ public class LevelButton : MonoBehaviour
     public void OnClick()
     {
         Debug.Log("Loading level: " + levelName);
-        levelInfoPanel.gameObject.SetActive(true);
         // send string and image to info panel
         levelInfoPanel.GetComponent<LevelInfoPanel>().SetLevelInfo(levelName, levelImage);
     }
