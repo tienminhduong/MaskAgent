@@ -34,7 +34,7 @@ public class PickupableItem : MonoBehaviour, IInteractable
 
     public void Interacted(IInteractable interacted)
     {
-        Inventory.Instance.AddObject(type);
+        Inventory.Instance.AddItem(type);
         Destroy(gameObject);
     }
     public void Overlapped(IInteractable overlapped) {
