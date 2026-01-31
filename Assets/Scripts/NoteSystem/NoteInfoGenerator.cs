@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class NoteInfoGenerator : MonoBehaviour
 {
-    [SerializeField] private QuestionDatabase _questionDatabase = null;
+    [SerializeField] private NoteInfoDatabase _questionDatabase = null;
     [SerializeField] private HumanInfo _humanInfo = null;
 
     private string _infoString = "";

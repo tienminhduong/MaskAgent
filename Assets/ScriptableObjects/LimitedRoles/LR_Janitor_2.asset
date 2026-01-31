@@ -9,7 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8f9a1d47c9ab8a6498ff2be94340f4a1, type: 3}
-  m_Name: KeyKeeperInfoDatabase
-  m_EditorClassIdentifier: Assembly-CSharp::QuestionDatabase
-  QuestionList: []
+  m_Script: {fileID: 11500000, guid: 06d85fe41d090a641b0e649b9d332954, type: 3}
+  m_Name: LR_Janitor_2
+  m_EditorClassIdentifier: Assembly-CSharp::LimitedRoles
+  Roles: 
