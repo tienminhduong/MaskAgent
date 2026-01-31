@@ -80,9 +80,11 @@ public class PlayerController : MonoBehaviour
         if (moveInput.magnitude >= 0.1f)
         {
             _rigidbody.linearVelocity = moveInput * moveSpeed * ((isRunning) ? scaleSpeed : 1);
+            _animator.SetBool("isMoving", true);
             _fsm.ChangeState(new RunState());
             return true;
         }
+        _animator.SetBool("isMoving", false);
         _rigidbody.linearVelocity = Vector2.zero;
         return false;
     }
