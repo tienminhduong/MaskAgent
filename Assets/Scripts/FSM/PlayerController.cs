@@ -69,7 +69,8 @@ public class PlayerController : MonoBehaviour
         _fsm = GetComponent<FSM>();
         playerInteractLogic = GetComponentInChildren<PlayerInteractLogic>();
 
-        scanZone.localScale = Vector3.zero;
+        if(scanZone != null)
+            scanZone.localScale = Vector3.zero;
     }
 
     void Start()
