@@ -9,11 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a0dc98a2df6b2b8459bb51bcc3a3845e, type: 3}
-  m_Name: Staff1
-  m_EditorClassIdentifier: Assembly-CSharp::HumanInfo
-  Name: Tien Minh Duong
-  Age: 21
-  DOB: 2005
-  Role: 1
-  Address: Bac Lieu
+  m_Script: {fileID: 11500000, guid: 8f9a1d47c9ab8a6498ff2be94340f4a1, type: 3}
+  m_Name: KeyKeeperInfoDatabase
+  m_EditorClassIdentifier: Assembly-CSharp::QuestionDatabase
+  QuestionList: []
