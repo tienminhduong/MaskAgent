@@ -20,6 +20,8 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] float rotationSpeed = 10f;
 
+    PlayerInteractLogic playerInteractLogic;
+
     bool isInteract = false;
     bool isRunning = false;
 
@@ -47,6 +49,7 @@ public class PlayerController : MonoBehaviour
         _rigidbody = GetComponent<Rigidbody2D>();
         _animator = GetComponent<Animator>();
         _fsm = GetComponent<FSM>();
+        playerInteractLogic = GetComponentInChildren<PlayerInteractLogic>();
     }
 
     void Start()
@@ -102,6 +105,9 @@ public class PlayerController : MonoBehaviour
     public void OnInteract(InputValue isInteract)
     {
         this.isInteract = isInteract.isPressed;
+        Debug.Log("PlayerController OnInteract: " + this.isInteract);
+        if (this.isInteract)
+            playerInteractLogic.Interact();
     }
 
     // =========== Collision ================
