@@ -9,7 +9,9 @@ public class IdleState : FSMState
     {
         player = obj.GetComponent<PlayerController>();
         rb = obj.GetComponent<Rigidbody2D>();
-        //player.Animator.Play("Idle");
+        player.Animator.SetBool("isMoving", false);
+        player.OffScanState();
+        rb.linearVelocity = Vector2.zero;
     }
 
     public override void UpdateState(float delta)

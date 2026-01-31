@@ -10,6 +10,7 @@ public class RunState : FSMState
         player = obj.GetComponent<PlayerController>();
         rb = obj.GetComponent<Rigidbody2D>();
         //player.Animator.Play("Run");
+        player.Animator.SetBool("isMoving", true);
     }
 
     public override void UpdateState(float delta)
