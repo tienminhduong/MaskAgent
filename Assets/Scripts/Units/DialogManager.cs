@@ -50,6 +50,16 @@ public class DialogManager : MonoBehaviour
         );
     }
 
+    public void ShowWrongOkDialog(string message)
+    {
+        dialogPanelController.gameObject.SetActive(true);
+        Time.timeScale = 0f;
+        dialogPanelController.ShowDialog(
+            message,
+            new string[] { ButtonOption.WRONGOK }
+        );
+    }
+
     public void CloseDialog()
     {
         dialogPanelController.gameObject.SetActive(false);

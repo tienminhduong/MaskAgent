@@ -95,6 +95,7 @@ MonoBehaviour:
   correctAnswerSelectedEvent: {fileID: 11400000, guid: f5330b79df8f29e4a8e220d39d2bbf6f, type: 2}
   wrongAnswerSelectedEvent: {fileID: 11400000, guid: 52aece8531970cc4ebdfadab4f8c7c1e, type: 2}
   okOptionSelectedEvent: {fileID: 11400000, guid: bd7a147dfb3cfc84b9836e0130d33587, type: 2}
+  wrongOkSelectedEvent: {fileID: 11400000, guid: bce8a6bf873c8d5468dd58b83cb2b6e3, type: 2}
 --- !u!114 &-7229446780636581667
 MonoBehaviour:
   m_ObjectHideFlags: 0

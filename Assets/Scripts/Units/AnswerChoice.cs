@@ -9,6 +9,7 @@ public class AnswerChoice : MonoBehaviour
     [SerializeField] private VoidPublisher correctAnswerSelectedEvent;
     [SerializeField] private VoidPublisher wrongAnswerSelectedEvent;
     [SerializeField] private VoidPublisher okOptionSelectedEvent;
+    [SerializeField] private VoidPublisher wrongOkSelectedEvent;
 
     public void Initialize(string text)
     {
@@ -26,6 +27,11 @@ public class AnswerChoice : MonoBehaviour
         {
             Debug.Log("OK option selected.");
             okOptionSelectedEvent.RaiseEvent();
+        }
+        else if (answerText.text == ButtonOption.WRONGOK)
+        {
+            Debug.Log("Wrong OK option selected.");
+            wrongOkSelectedEvent.RaiseEvent();
         }
         else
         {

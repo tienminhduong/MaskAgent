@@ -97,9 +97,6 @@ GameObject:
   - component: {fileID: 4775522071614111062}
   - component: {fileID: 4025972343735027344}
   - component: {fileID: 7884531182466697632}
-  - component: {fileID: 5908390425377781344}
-  - component: {fileID: 320136707918816644}
-  - component: {fileID: 7261936435299740536}
   - component: {fileID: 7578152349157782925}
   m_Layer: 6
   m_Name: View
@@ -135,6 +132,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9862b2c3cb9870a44a1681046b01641e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CharacterInteractLogic
+  limitedRoles: {fileID: 11400000, guid: 2eeb4e06ab63c024d92fe71b675d2967, type: 2}
+  onLimitedRoleInteractAttemptEvent: {fileID: 11400000, guid: 43ac758741d37c74cb14bf4fe28ac7ca, type: 2}
 --- !u!114 &4775522071614111062
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -152,8 +151,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 387490909353124087}
-        m_TargetAssemblyTypeName: PlayerInteractLogic, Assembly-CSharp
-        m_MethodName: 
+        m_TargetAssemblyTypeName: CharacterInteractLogic, Assembly-CSharp
+        m_MethodName: SetOverlappedInteractable
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -208,92 +207,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 387490909353124087}
-        m_TargetAssemblyTypeName: PlayerInteractLogic, Assembly-CSharp
-        m_MethodName: 
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
---- !u!114 &5908390425377781344
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9033804201007936429}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6f37c7f28d5713b4aa5dff638fbefa8d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::SOEventSystem.InteractableListener
-  eventPublisher: {fileID: 11400000, guid: aa80fffeb338cbd439e17dbd5fa61c54, type: 2}
-  response:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 387490909353124087}
-        m_TargetAssemblyTypeName: PlayerInteractLogic, Assembly-CSharp
-        m_MethodName: 
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
---- !u!114 &320136707918816644
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9033804201007936429}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6f37c7f28d5713b4aa5dff638fbefa8d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::SOEventSystem.InteractableListener
-  eventPublisher: {fileID: 11400000, guid: a2826bbe88f0e8b41b2a37e066340011, type: 2}
-  response:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 387490909353124087}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
---- !u!114 &7261936435299740536
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9033804201007936429}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6f37c7f28d5713b4aa5dff638fbefa8d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::SOEventSystem.InteractableListener
-  eventPublisher: {fileID: 11400000, guid: 78fb5e4d8e915594195516434ba6ead6, type: 2}
-  response:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 387490909353124087}
-        m_TargetAssemblyTypeName: PlayerInteractLogic, Assembly-CSharp
-        m_MethodName: 
+        m_TargetAssemblyTypeName: CharacterInteractLogic, Assembly-CSharp
+        m_MethodName: RemoveOverlappedInteractable
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -402,6 +317,14 @@ PrefabInstance:
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: 9dfc825aed78fcd4ba02077103263b40, type: 2}
+    - target: {fileID: 4017829469490990024, guid: 5638c942c0ae5bf4f975110972eff15b, type: 3}
+      propertyPath: onLureFailedEvent
+      value: 
+      objectReference: {fileID: 11400000, guid: f5a6cf5e4bf04b840802544ac45e4f37, type: 2}
+    - target: {fileID: 4017829469490990024, guid: 5638c942c0ae5bf4f975110972eff15b, type: 3}
+      propertyPath: onLureSuccessEvent
+      value: 
+      objectReference: {fileID: 11400000, guid: 9242f4e98ec4c3641806708f44317213, type: 2}
     - target: {fileID: 4531494877524017797, guid: 5638c942c0ae5bf4f975110972eff15b, type: 3}
       propertyPath: m_Name
       value: Leg
@@ -460,11 +383,11 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 9dfc825aed78fcd4ba02077103263b40, type: 2}
     - target: {fileID: 6299197145525522810, guid: 5638c942c0ae5bf4f975110972eff15b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.54064
+      value: 0.82257
       objectReference: {fileID: 0}
     - target: {fileID: 6299197145525522810, guid: 5638c942c0ae5bf4f975110972eff15b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.04238
+      value: 0.86222
       objectReference: {fileID: 0}
     - target: {fileID: 6299197145525522810, guid: 5638c942c0ae5bf4f975110972eff15b, type: 3}
       propertyPath: m_LocalPosition.z
