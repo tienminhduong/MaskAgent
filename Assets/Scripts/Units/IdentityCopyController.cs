@@ -21,6 +21,8 @@ public class IdentityCopyController : MonoBehaviour
 
     private Tween maskBounceTween;
 
+    public bool IsCopying => isCopying;
+
     private void Awake()
     {
         popupPanel.transform.localScale = Vector3.zero;
@@ -41,11 +43,11 @@ public class IdentityCopyController : MonoBehaviour
         targetPos = screenPos * ratio;
 
         popupPanel.gameObject.SetActive(true);
-        StartCoroutine(StartScanning());
+        StartCoroutine(StartScanning(player));
     }
 
 
-    private IEnumerator StartScanning()
+    private IEnumerator StartScanning(PlayerController player)
     {
         isCopying = true;
 
@@ -53,7 +55,15 @@ public class IdentityCopyController : MonoBehaviour
         popupSequence.Append(popupPanel.DOAnchorPos(targetPos, popupExpandDuration).SetEase(Ease.OutBack));
         popupSequence.Append(popupPanel.DOScale(1f, popupExpandDuration).SetEase(Ease.OutBack));
 
-        yield return popupSequence.WaitForCompletion();
+        while (popupSequence.IsActive() && !popupSequence.IsComplete())
+        {
+            if (!player.IsCopyPressed)
+            {
+                EndCopy(player);
+            }
+
+            yield return null;
+        }
 
         // start bounce icon
         maskIcon.localScale = Vector3.one;
@@ -64,26 +74,33 @@ public class IdentityCopyController : MonoBehaviour
         {
             elapsed += Time.deltaTime;
             copySlider.fillAmount = Mathf.Clamp01(elapsed / scanDuration);
+            
+            if (player.PlayerInteractLogic.OverlappedInteractable == null || !player.IsCopyPressed)
+            {
+                EndCopy(player);
+            }
+
             yield return null;
         }
 
-        EndCopy();
+        EndCopy(player);
     }
 
-    public void EndCopy()
+    public void EndCopy(PlayerController player)
     {
         isCopying = false;
 
         // TO DO: Apply the copied identity to the player
 
-        Sequence popupSequence = DOTween.Sequence();
-        popupSequence.Append(popupPanel.DOScale(0f, popupExpandDuration).SetEase(Ease.InBack));
-        popupSequence.Append(popupPanel.DOAnchorPos(initialPos, popupExpandDuration).SetEase(Ease.InBack));
+        popupPanel.localScale = Vector3.zero;
+        popupPanel.anchoredPosition = initialPos;
 
         if (maskBounceTween != null && maskBounceTween.IsActive())
         {
             maskBounceTween.Kill();
             maskIcon.localScale = Vector3.one;
         }
+
+        player.Fsm.ChangeState(new IdleState());
     }
 }

@@ -42,6 +42,7 @@ public class PlayerController : MonoBehaviour
     bool isInteract = false;
     bool isRunning = false;
     bool isChecking = false;
+    bool isCopyPressed = false;
 
     // ================= value INPUT =================
 
@@ -58,6 +59,17 @@ public class PlayerController : MonoBehaviour
     {
         get { return _fsm; }
         set { _fsm = value; }
+    }
+
+    public PlayerInteractLogic PlayerInteractLogic
+    {
+        get { return playerInteractLogic; }
+        set { playerInteractLogic = value; }
+    }
+    public bool IsCopyPressed
+    {
+        get { return isCopyPressed; }
+        set { isCopyPressed = value; }
     }
     #endregion
 
@@ -82,6 +94,8 @@ public class PlayerController : MonoBehaviour
     {
         //Debug.Log(_fsm.currentState.ToString());
         //Debug.Log(IsGrounded());
+
+        HandleCopy();
     }
 
     // ================= MOVEMENT =================
@@ -147,13 +161,31 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    private void HandleCopy()
+    {
+        IsCopyPressed = Input.GetKey(KeyCode.C);
+
+        if (Input.GetKeyDown(KeyCode.C))
+        {
+            if (isChecking || identityCopyController.IsCopying) return;
+            _fsm.ChangeState(new ScanState());
+        }
+    }
+
     public void OnCopy(InputValue isCopy)
     {
-        if (isCopy.isPressed)
-        {
-            _fsm.ChangeState(new ScanState());
-        } 
+        //IsCopyPressed = isCopy.isPressed;
+
+        //Debug.Log("PlayerController OnCopy: " + IsCopyPressed);
+
+        //if (isCopy.isPressed)
+        //{
+        //    if (isChecking || identityCopyController.IsCopying) return;
+
+        //    _fsm.ChangeState(new ScanState());
+        //} 
     }
+
     public void OnScanState()
     {
         StartCoroutine(StartCheckRoutine());
@@ -208,6 +240,7 @@ public class PlayerController : MonoBehaviour
         float rotateSpeed = 360f / scanCheckDuration;
         float elapsed = 0f;
 
+        bool foreceStop = false;
         while (elapsed < scanCheckDuration)
         {
             float deltaTime = Time.deltaTime;
@@ -215,16 +248,25 @@ public class PlayerController : MonoBehaviour
 
             scanEffect.Rotate(0, 0, -rotateSpeed * deltaTime);
 
+            if (!IsCopyPressed)
+            {
+                ForceStopChecking();
+                yield break;
+            }
+
             yield return null;
         }
 
         scanZone.DOScale(0, scanZoneExpandDuration).SetEase(Ease.InBack);
         yield return new WaitForSeconds(scanZoneExpandDuration);
 
-        // TO DO: Check for copyable objects in the scan zone
-        if (false)
+        var overlappedInteractable = playerInteractLogic.OverlappedInteractable;
+        Debug.Log($"Scan Complete. Overlapped Interactable: {overlappedInteractable}");
+
+        if (overlappedInteractable == null || foreceStop)
         {
             // Show Failed Copy Effect
+            _fsm.ChangeState(new IdleState());
         }
         else
         {
@@ -233,8 +275,12 @@ public class PlayerController : MonoBehaviour
         }
 
         isChecking = false;
-        _fsm.ChangeState(new IdleState());
-
     }
 
+    private void ForceStopChecking()
+    {
+        isChecking = false;
+        scanZone.localScale = Vector3.zero;
+        _fsm.ChangeState(new IdleState());
+    }
 }
