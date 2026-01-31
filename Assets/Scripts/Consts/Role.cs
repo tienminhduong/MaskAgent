@@ -7,4 +7,5 @@ public enum Role
     Security,
     Staff,
     Director,
+    Tranitor
 }

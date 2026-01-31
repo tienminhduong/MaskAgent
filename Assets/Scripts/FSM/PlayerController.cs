@@ -1,3 +1,5 @@
+﻿using DG.Tweening;
+using System.Collections;
 using System.Collections.Generic;
 using Unity.Burst.CompilerServices;
 using UnityEngine;
@@ -20,8 +22,16 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] float rotationSpeed = 10f;
 
+    [Header("Scan zone Controller")]
+    [SerializeField] private Transform scanZone;
+    [SerializeField] private Transform scanEffect;
+    [SerializeField] private float scanZoneExpandDuration = 0.5f;
+    [SerializeField] private float scanCheckDuration = 1f;
+    [SerializeField] private IdentityCopyController identityCopyController;
+
     bool isInteract = false;
     bool isRunning = false;
+    bool isChecking = false;
 
     // ================= value INPUT =================
 
@@ -47,6 +57,8 @@ public class PlayerController : MonoBehaviour
         _rigidbody = GetComponent<Rigidbody2D>();
         _animator = GetComponent<Animator>();
         _fsm = GetComponent<FSM>();
+
+        scanZone.localScale = Vector3.zero;
     }
 
     void Start()
@@ -104,6 +116,17 @@ public class PlayerController : MonoBehaviour
         this.isInteract = isInteract.isPressed;
     }
 
+    public void OnCopy(InputValue isCopy)
+    {
+        if (isCopy.isPressed)
+        {
+            if (!isChecking)
+            {
+                StartCoroutine(StartCheckRoutine());
+            }
+        }
+    }
+
     // =========== Collision ================
 
     //Vector2 boxSize = new Vector2(0.6f, 0.1f);
@@ -157,6 +180,43 @@ public class PlayerController : MonoBehaviour
     private void OnTriggerExit2D(Collider2D collision)
     {
 
+    }
+
+    private IEnumerator StartCheckRoutine()
+    {
+        isChecking = true;
+
+        scanZone.DOScale(1, scanZoneExpandDuration).SetEase(Ease.OutBack);
+        yield return new WaitForSeconds(scanZoneExpandDuration);
+
+        float rotateSpeed = 360f / scanCheckDuration;
+        float elapsed = 0f;
+
+        while (elapsed < scanCheckDuration)
+        {
+            float deltaTime = Time.deltaTime;
+            elapsed += deltaTime;
+
+            scanEffect.Rotate(0, 0, -rotateSpeed * deltaTime);
+
+            yield return null;
+        }
+
+        scanZone.DOScale(0, scanZoneExpandDuration).SetEase(Ease.InBack);
+        yield return new WaitForSeconds(scanZoneExpandDuration);
+
+        // TO DO: Check for copyable objects in the scan zone
+        if (false)
+        {
+            // Show Failed Copy Effect
+        }
+        else
+        {
+            // Start Copying Process
+            identityCopyController.StartCopy(this);
+        }
+
+        isChecking = false;
     }
 
 }
