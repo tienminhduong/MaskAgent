@@ -117,10 +117,18 @@ public class PlayerController : MonoBehaviour, IInteractable
         if (moveInput.magnitude >= 0.1f)
         {
             _rigidbody.linearVelocity = moveInput * moveSpeed * ((isRunning) ? scaleSpeed : 1);
+
+            float footStepInterval = (isRunning) ? 0.1f : 0.25f;
+            AudioManager.Instance.PlayFootStep(footStepInterval);
+
             _fsm.ChangeState(new RunState());
             return true;
         }
+
         _rigidbody.linearVelocity = Vector2.zero;
+
+        AudioManager.Instance.StopFootStep();
+
         return false;
     }
 
