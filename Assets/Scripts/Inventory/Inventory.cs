@@ -24,11 +24,11 @@ public class Inventory : MonoBehaviour
     }
 
     #endregion
-    [SerializeField] private List<ItemType> currentObjects;
+    [SerializeField] private List<ItemType> currentItems;
 
-    public bool HasObject(ItemType objectType)
+    public bool HasItem(ItemType objectType)
     {
-        foreach (var obj in currentObjects)
+        foreach (var obj in currentItems)
         {
             if (obj == objectType)
             {
@@ -38,13 +38,13 @@ public class Inventory : MonoBehaviour
         return false;
     }
 
-    public void RemoveObject(ItemType objectType)
+    public void RemoveItem(ItemType objectType)
     {
-        currentObjects.Remove(objectType);
+        currentItems.Remove(objectType);
     }
 
-    public void AddObject(ItemType objectType)
+    public void AddItem(ItemType objectType)
     {
-        currentObjects.Add(objectType);
+        currentItems.Add(objectType);
     }
 }
