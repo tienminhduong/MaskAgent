@@ -47,6 +47,7 @@ public class PlayerController : MonoBehaviour, IInteractable
     bool isCopyPressed = false;
 
     private HumanInfo copiedInfo;
+    public HumanInfo CopiedInfo => copiedInfo;
 
     // ================= value INPUT =================
 
