@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 800433825900332477}
   - component: {fileID: 1306072565532882912}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Triangle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -106,7 +106,7 @@ GameObject:
   - component: {fileID: 4717349365268952404}
   - component: {fileID: 3803537319662311382}
   - component: {fileID: 2763766146267011158}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -190,7 +190,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4913386564789340316}
-  m_BodyType: 0
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -233,6 +233,7 @@ MonoBehaviour:
   scanZoneExpandDuration: 0.5
   scanCheckDuration: 1
   identityCopyController: {fileID: 0}
+  spriteLibrary: {fileID: 5253906816326792960}
 --- !u!114 &4717349365268952404
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -308,7 +309,7 @@ GameObject:
   m_Component:
   - component: {fileID: 372321128202592923}
   - component: {fileID: 6248217684974249779}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: ScanCheckCircle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -379,7 +380,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 3
   m_Sprite: {fileID: 6739060727088464972, guid: f1bcc7a9ee3d55847a6a4554b29c6fba, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.5019608}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -655,7 +656,7 @@ GameObject:
   - component: {fileID: 3660514009404044984}
   - component: {fileID: 8420830363508923586}
   - component: {fileID: 8560523207537116503}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Leg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -762,7 +763,7 @@ GameObject:
   - component: {fileID: 6768045322595711739}
   - component: {fileID: 515515476318965133}
   - component: {fileID: 1191698646107781906}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
