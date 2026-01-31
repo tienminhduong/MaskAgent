@@ -90,7 +90,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1 &8497313819777357582
+--- !u!1 &1748492941108577827
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -98,39 +98,52 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4023372544565505946}
-  - component: {fileID: 2643761890448790609}
-  - component: {fileID: 470430942519619334}
+  - component: {fileID: 6743680406592895211}
+  - component: {fileID: 7581845908350450704}
+  - component: {fileID: 7772624609203070783}
   m_Layer: 0
-  m_Name: Document
+  m_Name: InteractableBox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4023372544565505946
+--- !u!4 &6743680406592895211
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8497313819777357582}
+  m_GameObject: {fileID: 1748492941108577827}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.38142, y: 0.18493, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 8420667663380167394}
-  m_Father: {fileID: 0}
+  m_Children: []
+  m_Father: {fileID: 4023372544565505946}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!61 &2643761890448790609
+--- !u!114 &7581845908350450704
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1748492941108577827}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0623df045a3e634fb1b90394f2cda60, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::InteractableBox
+  onOverlapEvent: {fileID: 11400000, guid: aa80fffeb338cbd439e17dbd5fa61c54, type: 2}
+  onOverlapExitEvent: {fileID: 11400000, guid: 78fb5e4d8e915594195516434ba6ead6, type: 2}
+--- !u!61 &7772624609203070783
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8497313819777357582}
+  m_GameObject: {fileID: 1748492941108577827}
   m_Enabled: 1
   serializedVersion: 3
   m_Density: 1
@@ -158,7 +171,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.04082191, y: -0.17636776}
+  m_Offset: {x: 0, y: -0.163266}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -168,8 +181,42 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 2.8043725, y: 3.6996336}
+  m_Size: {x: 2.0948415, y: 3.0168138}
   m_EdgeRadius: 0
+--- !u!1 &8497313819777357582
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4023372544565505946}
+  - component: {fileID: 470430942519619334}
+  m_Layer: 0
+  m_Name: Document
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4023372544565505946
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8497313819777357582}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.38142, y: 0.18493, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 8420667663380167394}
+  - {fileID: 6743680406592895211}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &470430942519619334
 MonoBehaviour:
   m_ObjectHideFlags: 0
