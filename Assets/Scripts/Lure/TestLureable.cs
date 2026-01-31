@@ -41,4 +41,24 @@ public class TestLureable : MonoBehaviour, ILureable, IInteractable
     {
         if (overlapExited != (IInteractable)this) return;
     }
+
+    public void Interacted(IInteractable interacted)
+    {
+        if (interacted != (IInteractable)this) return;
+
+        Debug.Log("Interacted with " + humanInfo.Name);
+        Direction = 0;
+    }
+
+    public void Overlapped(IInteractable overlapped)
+    {
+        if (overlapped != (IInteractable)this) return;
+
+        Debug.Log("Overlapped with " + humanInfo.Name);
+    }
+
+    public void OverlapExited(IInteractable overlapExited)
+    {
+        if (overlapExited != (IInteractable)this) return;
+    }
 }

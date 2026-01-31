@@ -30,6 +30,8 @@ public class PlayerController : MonoBehaviour
 
     PlayerInteractLogic playerInteractLogic;
 
+    PlayerInteractLogic playerInteractLogic;
+
     bool isInteract = false;
     bool isRunning = false;
 
@@ -165,32 +167,6 @@ public class PlayerController : MonoBehaviour
     public void RaiseSuspectLevel()
     {
         suspectLevel++;
-    }
-
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-
-    }
-
-    private void OnCollisionExit2D(Collision2D collision)
-    {
-
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-
-    }
-
-    private void OnTriggerStay2D(Collider2D collision)
-    {
-
-    }
-
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-
     }
 
 }
