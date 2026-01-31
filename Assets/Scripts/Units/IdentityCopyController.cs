@@ -10,9 +10,10 @@ public class IdentityCopyController : MonoBehaviour
     [SerializeField] private RectTransform popupPanel;
     [SerializeField] private Image copySlider;
     [SerializeField] private RectTransform maskIcon;
- 
+
     [SerializeField] private float popupExpandDuration = 1.5f;
     [SerializeField] private float scanDuration = 2.0f;
+    private IInteractable inZoneTarget;
 
     private bool isCopying = false;
 
@@ -40,7 +41,7 @@ public class IdentityCopyController : MonoBehaviour
         if (isCopying)
             return;
 
-        var currentTarget = player.PlayerInteractLogic.OverlappedInteractable;
+        var currentTarget = inZoneTarget;
 
         // Nếu là human khác → reset progress
         if (currentTarget != cachedTarget)
@@ -90,7 +91,7 @@ public class IdentityCopyController : MonoBehaviour
         while (elapsed < scanDuration)
         {
             if (!player.IsCopyPressed ||
-                player.PlayerInteractLogic.OverlappedInteractable != cachedTarget)
+                inZoneTarget != cachedTarget)
             {
                 // lưu lại tiến trình
                 cachedProgress = elapsed;
@@ -139,5 +140,21 @@ public class IdentityCopyController : MonoBehaviour
         }
 
         player.ForceStopChecking();
+    }
+
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag(TagName.NPC))
+        {
+            inZoneTarget = collision.GetComponent<IInteractable>();
+        }
+    }
+
+    void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.CompareTag(TagName.NPC))
+        {
+            inZoneTarget = null;
+        }
     }
 }
