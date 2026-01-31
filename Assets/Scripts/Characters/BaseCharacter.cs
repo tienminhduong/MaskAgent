@@ -24,8 +24,8 @@ public class BaseCharacter : MonoBehaviour, IInteractable, ILureable
     protected int direction = 1; // 1 = forward, -1 = backward
 
     [SerializeField] float idleBaseAngle = 0;
-    [SerializeField] float idleRotateAngle = 45f; 
-    [SerializeField] float idleRotateSpeed = 2f; 
+    [SerializeField] float idleRotateAngle = 45f;
+    [SerializeField] float idleRotateSpeed = 2f;
 
     [SerializeField] protected List<Transform> patroPath;
     [SerializeField] protected List<Transform> luredPath;
@@ -35,6 +35,8 @@ public class BaseCharacter : MonoBehaviour, IInteractable, ILureable
     [SerializeField] protected bool isLured = false;
     [SerializeField] protected HumanInfo humanInfo;
     [SerializeField] protected InteractablePublisher onInteractedEvent;
+    [SerializeField] protected VoidPublisher onLureSuccessEvent;
+    [SerializeField] protected VoidPublisher onLureFailedEvent;
 
     public HumanInfo HumanInfo => humanInfo;
 
@@ -191,8 +193,13 @@ public class BaseCharacter : MonoBehaviour, IInteractable, ILureable
 
     public bool OnLured(Role lurerRole)
     {
-        if (!((ILureable)this).IsLureable(lurerRole)) return false;
+        if (!((ILureable)this).IsLureable(lurerRole))
+        {
+            onLureFailedEvent.RaiseEvent();
+            return false;
+        }
         isLured = true;
+        onLureSuccessEvent.RaiseEvent();
         return true;
     }
 

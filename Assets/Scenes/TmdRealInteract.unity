@@ -130,6 +130,12 @@ GameObject:
   - component: {fileID: 98537993}
   - component: {fileID: 98537992}
   - component: {fileID: 98537991}
+  - component: {fileID: 98537994}
+  - component: {fileID: 98537996}
+  - component: {fileID: 98537998}
+  - component: {fileID: 98537997}
+  - component: {fileID: 98538000}
+  - component: {fileID: 98537999}
   m_Layer: 0
   m_Name: DialogManager
   m_TagString: Untagged
@@ -193,6 +199,174 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &98537994
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 98537990}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5ec52ab00de1a44bbe99f8b5033761b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SOEventSystem.VoidListener
+  publisher: {fileID: 11400000, guid: 43ac758741d37c74cb14bf4fe28ac7ca, type: 2}
+  responses:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 98537992}
+        m_TargetAssemblyTypeName: DialogManager, Assembly-CSharp
+        m_MethodName: ShowQuestionDialog
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &98537996
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 98537990}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5ec52ab00de1a44bbe99f8b5033761b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SOEventSystem.VoidListener
+  publisher: {fileID: 11400000, guid: bd7a147dfb3cfc84b9836e0130d33587, type: 2}
+  responses:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 98537992}
+        m_TargetAssemblyTypeName: DialogManager, Assembly-CSharp
+        m_MethodName: CloseDialog
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &98537997
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 98537990}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5ec52ab00de1a44bbe99f8b5033761b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SOEventSystem.VoidListener
+  publisher: {fileID: 11400000, guid: 52aece8531970cc4ebdfadab4f8c7c1e, type: 2}
+  responses:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 98537992}
+        m_TargetAssemblyTypeName: DialogManager, Assembly-CSharp
+        m_MethodName: ShowSimpleDialog
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Lmao, who tf are you???
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &98537998
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 98537990}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5ec52ab00de1a44bbe99f8b5033761b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SOEventSystem.VoidListener
+  publisher: {fileID: 11400000, guid: f5330b79df8f29e4a8e220d39d2bbf6f, type: 2}
+  responses:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 98537992}
+        m_TargetAssemblyTypeName: DialogManager, Assembly-CSharp
+        m_MethodName: ShowSimpleDialog
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: OK! You are correct!
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &98537999
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 98537990}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5ec52ab00de1a44bbe99f8b5033761b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SOEventSystem.VoidListener
+  publisher: {fileID: 11400000, guid: f5a6cf5e4bf04b840802544ac45e4f37, type: 2}
+  responses:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 98537992}
+        m_TargetAssemblyTypeName: DialogManager, Assembly-CSharp
+        m_MethodName: ShowSimpleDialog
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Why do I have to listen to you???
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &98538000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 98537990}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5ec52ab00de1a44bbe99f8b5033761b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SOEventSystem.VoidListener
+  publisher: {fileID: 11400000, guid: 9242f4e98ec4c3641806708f44317213, type: 2}
+  responses:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 98537992}
+        m_TargetAssemblyTypeName: DialogManager, Assembly-CSharp
+        m_MethodName: ShowSimpleDialog
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: OK! I will go that way.
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &313517857
 GameObject:
   m_ObjectHideFlags: 0
@@ -293,6 +467,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 387490909353124087, guid: 35b112b3e650dc44bb52e86713b9c48d, type: 3}
+      propertyPath: limitedRoles
+      value: 
+      objectReference: {fileID: 11400000, guid: 2eeb4e06ab63c024d92fe71b675d2967, type: 2}
+    - target: {fileID: 387490909353124087, guid: 35b112b3e650dc44bb52e86713b9c48d, type: 3}
+      propertyPath: onLimitedRoleInteractAttemptEvent
+      value: 
+      objectReference: {fileID: 11400000, guid: 43ac758741d37c74cb14bf4fe28ac7ca, type: 2}
     - target: {fileID: 2352985415865388464, guid: 35b112b3e650dc44bb52e86713b9c48d, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.82257
@@ -333,6 +515,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4615757735445370626, guid: 35b112b3e650dc44bb52e86713b9c48d, type: 3}
+      propertyPath: onLureFailedEvent
+      value: 
+      objectReference: {fileID: 11400000, guid: f5a6cf5e4bf04b840802544ac45e4f37, type: 2}
+    - target: {fileID: 4615757735445370626, guid: 35b112b3e650dc44bb52e86713b9c48d, type: 3}
+      propertyPath: onLureSuccessEvent
+      value: 
+      objectReference: {fileID: 11400000, guid: 9242f4e98ec4c3641806708f44317213, type: 2}
     - target: {fileID: 4615757735445370626, guid: 35b112b3e650dc44bb52e86713b9c48d, type: 3}
       propertyPath: luredPath.Array.size
       value: 5
@@ -381,11 +571,30 @@ PrefabInstance:
       propertyPath: 'patroPath.Array.data[4]'
       value: 
       objectReference: {fileID: 902012336}
+    - target: {fileID: 4775522071614111062, guid: 35b112b3e650dc44bb52e86713b9c48d, type: 3}
+      propertyPath: response.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SetOverlappedInteractable
+      objectReference: {fileID: 0}
+    - target: {fileID: 4775522071614111062, guid: 35b112b3e650dc44bb52e86713b9c48d, type: 3}
+      propertyPath: response.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: CharacterInteractLogic, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 7362680336933939465, guid: 35b112b3e650dc44bb52e86713b9c48d, type: 3}
       propertyPath: m_Name
       value: Security
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 7884531182466697632, guid: 35b112b3e650dc44bb52e86713b9c48d, type: 3}
+      propertyPath: response.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: RemoveOverlappedInteractable
+      objectReference: {fileID: 0}
+    - target: {fileID: 7884531182466697632, guid: 35b112b3e650dc44bb52e86713b9c48d, type: 3}
+      propertyPath: response.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: CharacterInteractLogic, Assembly-CSharp
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 5908390425377781344, guid: 35b112b3e650dc44bb52e86713b9c48d, type: 3}
+    - {fileID: 320136707918816644, guid: 35b112b3e650dc44bb52e86713b9c48d, type: 3}
+    - {fileID: 7261936435299740536, guid: 35b112b3e650dc44bb52e86713b9c48d, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -613,7 +822,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4355211794858697370, guid: 7f15db1aa2dd3db41a2bd165b5639ea8, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 4.14
+      value: -7.82
       objectReference: {fileID: 0}
     - target: {fileID: 4355211794858697370, guid: 7f15db1aa2dd3db41a2bd165b5639ea8, type: 3}
       propertyPath: m_LocalPosition.y
@@ -759,22 +968,14 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 8834382455502558145, guid: 6b13cb88ee8ea184fa00e966d252dd8e, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1797159063}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6b13cb88ee8ea184fa00e966d252dd8e, type: 3}
---- !u!1 &1797159058 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8834382455502558145, guid: 6b13cb88ee8ea184fa00e966d252dd8e, type: 3}
-  m_PrefabInstance: {fileID: 1615949184}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1797159059 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3564452101156872250, guid: 6b13cb88ee8ea184fa00e966d252dd8e, type: 3}
   m_PrefabInstance: {fileID: 1615949184}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1797159058}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7d8e311b98ddfab428f2f3ce1bbf6df5, type: 3}
@@ -785,34 +986,6 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 6235378025657954794, guid: 6b13cb88ee8ea184fa00e966d252dd8e, type: 3}
   m_PrefabInstance: {fileID: 1615949184}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1797159063
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1797159058}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e5ec52ab00de1a44bbe99f8b5033761b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::SOEventSystem.VoidListener
-  publisher: {fileID: 11400000, guid: fa556c6c77c682f4e978718303769004, type: 2}
-  responses:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1797159058}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!1 &1812307956
 GameObject:
   m_ObjectHideFlags: 0
@@ -976,6 +1149,63 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &2023021520
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1450269222859088246, guid: 1643782071c84fe4fb90b6b7cc69f7a5, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -3.93042
+      objectReference: {fileID: 0}
+    - target: {fileID: 1450269222859088246, guid: 1643782071c84fe4fb90b6b7cc69f7a5, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1.09562
+      objectReference: {fileID: 0}
+    - target: {fileID: 1450269222859088246, guid: 1643782071c84fe4fb90b6b7cc69f7a5, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1450269222859088246, guid: 1643782071c84fe4fb90b6b7cc69f7a5, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1450269222859088246, guid: 1643782071c84fe4fb90b6b7cc69f7a5, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1450269222859088246, guid: 1643782071c84fe4fb90b6b7cc69f7a5, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1450269222859088246, guid: 1643782071c84fe4fb90b6b7cc69f7a5, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1450269222859088246, guid: 1643782071c84fe4fb90b6b7cc69f7a5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1450269222859088246, guid: 1643782071c84fe4fb90b6b7cc69f7a5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1450269222859088246, guid: 1643782071c84fe4fb90b6b7cc69f7a5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4817364566195543935, guid: 1643782071c84fe4fb90b6b7cc69f7a5, type: 3}
+      propertyPath: m_Name
+      value: QuestionManager
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 1643782071c84fe4fb90b6b7cc69f7a5, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -988,3 +1218,4 @@ SceneRoots:
   - {fileID: 98537993}
   - {fileID: 399168569}
   - {fileID: 1812307958}
+  - {fileID: 2023021520}

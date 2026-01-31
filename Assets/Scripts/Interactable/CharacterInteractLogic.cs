@@ -1,13 +1,22 @@
+using SOEventSystem;
 using UnityEngine;
 
 public class CharacterInteractLogic : MonoBehaviour
 {
     [SerializeField] private IInteractable overlappedInteractable;
+    [SerializeField] private LimitedRoles limitedRoles;
+    [SerializeField] private VoidPublisher onLimitedRoleInteractAttemptEvent;
 
     public void SetOverlappedInteractable(IInteractable interactable)
     {
-        overlappedInteractable = interactable;
-        Debug.Log("I see you");
+        if (interactable is PlayerController playerController)
+        {
+            if (limitedRoles.Roles.Contains(playerController.PlayerInfo.Role))
+            {
+                overlappedInteractable = interactable;
+                onLimitedRoleInteractAttemptEvent.RaiseEvent();
+            }
+        }
     }
 
     public void RemoveOverlappedInteractable(IInteractable interactable)

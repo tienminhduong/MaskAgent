@@ -19,6 +19,7 @@ public class DialogManager : MonoBehaviour
         QuestionManager.Instance.GenerateQuestion();
 
         dialogPanelController.gameObject.SetActive(true);
+        Time.timeScale = 0f;
         dialogPanelController.ShowDialog(
             QuestionManager.Instance.CurrentQuestion.QuestionText,
             QuestionManager.Instance.CurrentQuestion.Options.ToArray()
@@ -32,9 +33,26 @@ public class DialogManager : MonoBehaviour
             return;
 
         dialogPanelController.gameObject.SetActive(true);
+        Time.timeScale = 0f;
         dialogPanelController.ShowDialog(
             "What do you need from me?",
             new string[] { ButtonOption.LURE }
         );
+    }
+
+    public void ShowSimpleDialog(string message)
+    {
+        dialogPanelController.gameObject.SetActive(true);
+        Time.timeScale = 0f;
+        dialogPanelController.ShowDialog(
+            message,
+            new string[] { ButtonOption.OK }
+        );
+    }
+
+    public void CloseDialog()
+    {
+        dialogPanelController.gameObject.SetActive(false);
+        Time.timeScale = 1f;
     }
 }

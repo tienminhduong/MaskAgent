@@ -9,7 +9,7 @@ using UnityEngine.InputSystem;
 [RequireComponent(typeof(Collider2D))]
 [RequireComponent(typeof(Rigidbody2D))]
 [RequireComponent(typeof(FSM))]
-public class PlayerController : MonoBehaviour
+public class PlayerController : MonoBehaviour, IInteractable
 {
     Collider2D _collider;
     Rigidbody2D _rigidbody;
@@ -58,6 +58,11 @@ public class PlayerController : MonoBehaviour
     {
         get { return _fsm; }
         set { _fsm = value; }
+    }
+    public HumanInfo PlayerInfo
+    {
+        get { return playerInfo; }
+        set { playerInfo = value; }
     }
     #endregion
 
@@ -152,7 +157,7 @@ public class PlayerController : MonoBehaviour
         if (isCopy.isPressed)
         {
             _fsm.ChangeState(new ScanState());
-        } 
+        }
     }
     public void OnScanState()
     {
@@ -161,7 +166,7 @@ public class PlayerController : MonoBehaviour
     public void OffScanState()
     {
         StopCoroutine(StartCheckRoutine());
-    }    
+    }
 
 
 
@@ -237,4 +242,15 @@ public class PlayerController : MonoBehaviour
 
     }
 
+    public void Interacted(IInteractable interacted)
+    {
+    }
+
+    public void Overlapped(IInteractable overlapped)
+    {
+    }
+
+    public void OverlapExited(IInteractable overlapExited)
+    {
+    }
 }

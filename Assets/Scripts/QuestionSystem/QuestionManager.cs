@@ -13,9 +13,9 @@ public class QuestionManager : Singleton<QuestionManager>
 
     [SerializeField] private Question currentQuestion;
 
+
     public void GenerateQuestion()
     {
-        // select random question from config
         var typeConfig = questionTypeConfig[Random.Range(0, questionTypeConfig.Length)];
         var correctHumanInfo = copiedHumanInfos[Random.Range(0, copiedHumanInfos.Count)];
 

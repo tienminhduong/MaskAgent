@@ -6,7 +6,9 @@ public class AnswerChoice : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI answerText;
     [SerializeField] private VoidPublisher lureOptionSelectedEvent;
-    [SerializeField] private StringPublisher answerSelectedEvent;
+    [SerializeField] private VoidPublisher correctAnswerSelectedEvent;
+    [SerializeField] private VoidPublisher wrongAnswerSelectedEvent;
+    [SerializeField] private VoidPublisher okOptionSelectedEvent;
 
     public void Initialize(string text)
     {
@@ -20,11 +22,23 @@ public class AnswerChoice : MonoBehaviour
             Debug.Log("Lure option selected.");
             lureOptionSelectedEvent.RaiseEvent();
         }
+        else if (answerText.text == ButtonOption.OK)
+        {
+            Debug.Log("OK option selected.");
+            okOptionSelectedEvent.RaiseEvent();
+        }
         else
         {
             bool isCorrect = QuestionManager.Instance.EvaluateAnswer(answerText.text);
             Debug.Log($"Answer selected: {answerText.text}. Correct: {isCorrect}");
-            answerSelectedEvent.RaiseEvent(answerText.text);
+            if (isCorrect)
+            {
+                correctAnswerSelectedEvent.RaiseEvent();
+            }
+            else
+            {
+                wrongAnswerSelectedEvent.RaiseEvent();
+            }
         }
     }
 }
