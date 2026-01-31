@@ -15,7 +15,7 @@ public class CharPatro : FSMState
     public override void UpdateState(float delta)
     {
         character.HandleMoving();
-        if (UpdateTimer(timer))
+        if (UpdateTimer(delta))
             ChangeState(new CharIdle());
     }
 }
