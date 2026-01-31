@@ -18,9 +18,10 @@ public class CharacterInteractLogic : MonoBehaviour
     {
         if (interactable is PlayerController playerController)
         {
-            if (playerController.CopiedInfo == null || playerController.CopiedInfo == baseCharacter.HumanInfo)
+            if (playerController.CopiedInfo == null || playerController.CopiedInfo.Name.Equals(baseCharacter.HumanInfo.Name))
             {
                 onGameOverEvent.RaiseEvent();
+                Debug.Log("Thua goi");
                 return;
             }
             
