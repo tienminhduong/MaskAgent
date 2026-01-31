@@ -316,7 +316,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 1
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!114 &4368705995477911980
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -333,6 +333,9 @@ MonoBehaviour:
   moveSpeed: 5
   scaleSpeed: 2.5
   rotationSpeed: 10
+  playerInfo: {fileID: 11400000, guid: 108747d148b537f4daafa42d58def038, type: 2}
+  suspectLevel: 0
+  gameOverEvent: {fileID: 11400000, guid: 5ee0a84c175024b4b8a1aae9bb625231, type: 2}
 --- !u!114 &4717349365268952404
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -390,6 +393,9 @@ GameObject:
   - component: {fileID: 8287722438835754754}
   - component: {fileID: 3196994640573029767}
   - component: {fileID: 70986018722912434}
+  - component: {fileID: 3769828885629168209}
+  - component: {fileID: 5621560870219809457}
+  - component: {fileID: 8982015997142259282}
   m_Layer: 6
   m_Name: InteractableBox
   m_TagString: Untagged
@@ -517,6 +523,90 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &70986018722912434
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6404072357778888749}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f37c7f28d5713b4aa5dff638fbefa8d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SOEventSystem.InteractableListener
+  eventPublisher: {fileID: 11400000, guid: 78fb5e4d8e915594195516434ba6ead6, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3391747976087086448}
+        m_TargetAssemblyTypeName: PlayerInteractLogic, Assembly-CSharp
+        m_MethodName: RemoveOverlappedInteractable
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &3769828885629168209
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6404072357778888749}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f37c7f28d5713b4aa5dff638fbefa8d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SOEventSystem.InteractableListener
+  eventPublisher: {fileID: 11400000, guid: aa80fffeb338cbd439e17dbd5fa61c54, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3391747976087086448}
+        m_TargetAssemblyTypeName: PlayerInteractLogic, Assembly-CSharp
+        m_MethodName: SetOverlappedInteractable
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &5621560870219809457
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6404072357778888749}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f37c7f28d5713b4aa5dff638fbefa8d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SOEventSystem.InteractableListener
+  eventPublisher: {fileID: 11400000, guid: a2826bbe88f0e8b41b2a37e066340011, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3391747976087086448}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: 
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &8982015997142259282
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

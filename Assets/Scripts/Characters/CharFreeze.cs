@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class CharPatro : FSMState
+public class CharFreeze : FSMState
 {
     BaseCharacter character;
     Rigidbody2D rb;
@@ -9,13 +9,12 @@ public class CharPatro : FSMState
     {
         character = obj.GetComponent<BaseCharacter>();
         rb = obj.GetComponent<Rigidbody2D>();
-        timer = Random.Range(2f, 3f);
+        //player.Animator.Play("Freeze");
+        character.StopMove();
     }
 
     public override void UpdateState(float delta)
     {
-        character.HandleMoving();
-        if (UpdateTimer(delta))
-            ChangeState(new CharIdle());
+        
     }
 }

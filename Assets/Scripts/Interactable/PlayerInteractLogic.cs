@@ -22,4 +22,17 @@ public class PlayerInteractLogic : MonoBehaviour
         Debug.Log($"Interacting with {overlappedInteractable}");
         overlappedInteractable?.Interacted(overlappedInteractable);
     }
+
+    public bool Lure(Role playerRole)
+    {
+        if (overlappedInteractable == null)
+        {
+            Debug.Log("No interactable to lure.");
+            return true;
+        }
+        Debug.Log($"Luring {overlappedInteractable} as {playerRole}");
+        if (overlappedInteractable is ILureable lureable)
+            return lureable?.OnLured(playerRole) ?? true;
+        return true;
+    }
 }

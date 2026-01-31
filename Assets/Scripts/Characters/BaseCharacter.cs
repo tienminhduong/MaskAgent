@@ -9,7 +9,7 @@ using UnityEngine.Windows;
 [RequireComponent(typeof(FSM))]
 
 
-public class BaseCharacter : MonoBehaviour
+public class BaseCharacter : MonoBehaviour, IInteractable, ILureable
 {
     [SerializeField] protected FSM fsm;
     protected Collider2D col;
@@ -22,12 +22,20 @@ public class BaseCharacter : MonoBehaviour
     [SerializeField] protected float reachDistance = 0.1f;
     protected int direction = 1; // 1 = forward, -1 = backward
 
+    [SerializeField] float idleBaseAngle = 0;
+    [SerializeField] float idleRotateAngle = 45f; 
+    [SerializeField] float idleRotateSpeed = 2f; 
+
     [SerializeField] protected List<Transform> patroPath;
     [SerializeField] protected List<Transform> luredPath;
     [SerializeField] protected List<Transform> path;
     protected int currentIndex;
     [SerializeField] protected bool isLoop = true;
     [SerializeField] protected bool isLured = false;
+    [SerializeField] protected HumanInfo humanInfo;
+
+    public HumanInfo HumanInfo => humanInfo;
+
 
     protected virtual void Awake()
     {
@@ -39,20 +47,20 @@ public class BaseCharacter : MonoBehaviour
 
     protected virtual void Start()
     {
-        fsm.ChangeState(new CharIdle());
         path = patroPath;
+        fsm.ChangeState(new CharIdle());
     }
 
     public void SwitchToPatroPath()
     {
-        if(currentIndex == 0)
+        if (currentIndex == 0)
             path = patroPath;
-    }    
+    }
     public void SwitchToLuredPath()
     {
         if (currentIndex == 0)
             path = luredPath;
-    }    
+    }
     public virtual bool HandleMoving()
     {
         if (path == null || path.Count == 0)
@@ -60,20 +68,43 @@ public class BaseCharacter : MonoBehaviour
             StopMove();
             return false;
         }
-        if(isLured)
+        if (isLured)
             SwitchToLuredPath();
         else
             SwitchToPatroPath();
 
-            Vector2 dir = GetDirectionToTarget();
+        Vector2 dir = GetDirectionToTarget();
         if (dir == Vector2.zero) return false;
 
         RotateTo(dir);
         rb.linearVelocity = dir * moveSpeed;
 
-        fsm.ChangeState(new RunState());
         return true;
     }
+    public virtual void SetIdleBaseAngle(float angle)
+    {
+        idleBaseAngle = angle;
+    }
+
+    public virtual bool HandleIdle(float idleTimer)
+    {
+        if (rb.linearVelocity.sqrMagnitude > 0.01f)
+            return false;
+
+        float t = Mathf.Sin(idleTimer * idleRotateSpeed);
+
+
+        float targetAngle = idleBaseAngle + t * idleRotateAngle;
+
+        rb.rotation = Mathf.LerpAngle(
+            rb.rotation,
+            targetAngle,
+            5f * Time.fixedDeltaTime
+        );
+
+        return true;
+    }
+
 
 
     protected virtual Vector2 GetDirectionToTarget()
@@ -135,7 +166,7 @@ public class BaseCharacter : MonoBehaviour
         rb.rotation = angle;
     }
 
-    protected virtual void StopMove()
+    public virtual void StopMove()
     {
         rb.linearVelocity = Vector2.zero;
     }
@@ -156,4 +187,27 @@ public class BaseCharacter : MonoBehaviour
         }
     }
 
+    public bool OnLured(Role lurerRole)
+    {
+        if (!((ILureable)this).IsLureable(lurerRole)) return false;
+        isLured = true;
+        return true;
+    }
+
+    public void Interacted(IInteractable interacted)
+    {
+        fsm.ChangeState(new CharFreeze());
+    }
+    public void EndInteracted()
+    {
+        fsm.ChangeState(new CharIdle());
+    }
+
+    public void Overlapped(IInteractable overlapped)
+    {
+    }
+
+    public void OverlapExited(IInteractable overlapExited)
+    {
+    }
 }
