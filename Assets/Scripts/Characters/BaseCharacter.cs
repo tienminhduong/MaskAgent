@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.IO;
+using SOEventSystem;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Windows;
@@ -33,6 +34,7 @@ public class BaseCharacter : MonoBehaviour, IInteractable, ILureable
     [SerializeField] protected bool isLoop = true;
     [SerializeField] protected bool isLured = false;
     [SerializeField] protected HumanInfo humanInfo;
+    [SerializeField] protected InteractablePublisher onInteractedEvent;
 
     public HumanInfo HumanInfo => humanInfo;
 
@@ -197,6 +199,7 @@ public class BaseCharacter : MonoBehaviour, IInteractable, ILureable
     public void Interacted(IInteractable interacted)
     {
         fsm.ChangeState(new CharFreeze());
+        onInteractedEvent.RaiseEvent(this);
     }
     public void EndInteracted()
     {

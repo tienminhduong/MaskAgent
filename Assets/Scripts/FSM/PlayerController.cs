@@ -69,7 +69,8 @@ public class PlayerController : MonoBehaviour
         _fsm = GetComponent<FSM>();
         playerInteractLogic = GetComponentInChildren<PlayerInteractLogic>();
 
-        scanZone.localScale = Vector3.zero;
+        if (scanZone != null)
+            scanZone.localScale = Vector3.zero;
     }
 
     void Start()
@@ -194,7 +195,7 @@ public class PlayerController : MonoBehaviour
     {
         isChecking = true;
 
-        scanZone.DOScale(1, scanZoneExpandDuration).SetEase(Ease.OutBack);
+        scanZone?.DOScale(1, scanZoneExpandDuration).SetEase(Ease.OutBack);
         yield return new WaitForSeconds(scanZoneExpandDuration);
 
         float rotateSpeed = 360f / scanCheckDuration;
@@ -210,7 +211,7 @@ public class PlayerController : MonoBehaviour
             yield return null;
         }
 
-        scanZone.DOScale(0, scanZoneExpandDuration).SetEase(Ease.InBack);
+        scanZone?.DOScale(0, scanZoneExpandDuration).SetEase(Ease.InBack);
         yield return new WaitForSeconds(scanZoneExpandDuration);
 
         // TO DO: Check for copyable objects in the scan zone

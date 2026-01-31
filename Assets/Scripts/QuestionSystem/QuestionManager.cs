@@ -79,4 +79,6 @@ public class QuestionManager : Singleton<QuestionManager>
     {
         return currentQuestion.CorrectAnswer == answer;
     }
+
+    public Question CurrentQuestion => currentQuestion;
 }
