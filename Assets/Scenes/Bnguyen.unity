@@ -788,6 +788,9 @@ MonoBehaviour:
   moveSpeed: 5
   scaleSpeed: 2.5
   rotationSpeed: 10
+  playerInfo: {fileID: 0}
+  suspectLevel: 0
+  gameOverEvent: {fileID: 0}
 --- !u!50 &1629712242
 Rigidbody2D:
   serializedVersion: 5
@@ -1111,10 +1114,6 @@ PrefabInstance:
       propertyPath: 'patroPath.Array.data[4]'
       value: 
       objectReference: {fileID: 1858274426}
-    - target: {fileID: 4539602598224052293, guid: 5638c942c0ae5bf4f975110972eff15b, type: 3}
-      propertyPath: m_Constraints
-      value: 4
-      objectReference: {fileID: 0}
     - target: {fileID: 6299197145525522810, guid: 5638c942c0ae5bf4f975110972eff15b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
