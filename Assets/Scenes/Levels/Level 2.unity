@@ -12715,8 +12715,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9007526499195181976, guid: 1363647af559ede4c98d74946e121134, type: 3}
       propertyPath: noteInfo
-      value: The security has access to the secret document place
+      value: The security has access to the secret document
       objectReference: {fileID: 0}
+    - target: {fileID: 9007526499195181976, guid: 1363647af559ede4c98d74946e121134, type: 3}
+      propertyPath: notePrefab
+      value: 
+      objectReference: {fileID: 6260007813374332695, guid: 0664ad9f1860d614789aa2a9aa64ae67, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
